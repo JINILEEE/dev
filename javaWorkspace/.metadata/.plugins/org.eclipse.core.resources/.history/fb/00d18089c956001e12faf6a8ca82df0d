@@ -1,0 +1,15 @@
+package memberData;
+
+public class MemberData {
+
+	//기본생성자
+	public MemberData() {
+		
+	}
+	
+	//필드 == 멤버 변수
+	private String id;
+	private String pwd;
+	private String nick;
+	
+}

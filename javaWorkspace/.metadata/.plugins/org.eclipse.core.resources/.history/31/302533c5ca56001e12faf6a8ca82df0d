@@ -1,0 +1,9 @@
+package memberData;
+
+public class BoardData {
+
+	private String title;
+	private String content;
+	private String write;
+	
+}

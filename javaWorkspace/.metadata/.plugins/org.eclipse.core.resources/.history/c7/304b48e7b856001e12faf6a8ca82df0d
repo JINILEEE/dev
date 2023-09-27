@@ -1,0 +1,24 @@
+package member;
+
+public class MemberData {
+
+	//기본 생성자
+	public MemberData() {
+	}
+
+	//모든 필드채우는 생성자
+	public MemberData(String id, String pwd, String nick) {
+		this.id = id;
+		this.pwd = pwd;
+		this.nick = nick;
+	}
+	
+	private String id;
+	private String pwd;
+	private String nick;
+	
+	
+	
+	
+	
+}

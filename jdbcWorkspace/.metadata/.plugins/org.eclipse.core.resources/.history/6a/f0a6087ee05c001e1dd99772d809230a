@@ -1,0 +1,9 @@
+package db.util;
+
+public class JDBCTemplate {
+
+	public void method01() {
+		
+	}
+	
+}

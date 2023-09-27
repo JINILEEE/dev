@@ -1,0 +1,21 @@
+package main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		System.out.println("----- 회원가입 -----");
+		
+		//db 연결 준비
+		
+		//db 연결
+		Connection conn = DriverManager.getConnection(url, username, pwd);
+		
+		//쿼리 실행
+		
+	}
+
+}

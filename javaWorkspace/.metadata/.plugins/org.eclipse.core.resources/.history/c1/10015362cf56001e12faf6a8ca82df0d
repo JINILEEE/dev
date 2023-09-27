@@ -1,0 +1,43 @@
+package memberData;
+
+import java.util.Scanner;
+
+public class MemberController {
+
+	//필드
+	private Scanner sc;
+	private MemberDao dao;
+	
+	//기본 생성자(파라미터x)//초기값 셋팅
+	public MemberController() {
+		sc = new Scanner(System.in);
+		dao = new MemberDao();
+	}
+	
+	//회원가입
+	public void join() {
+		System.out.println("----- 회원가입 -----");
+		
+		//데이터 입력받기
+		System.out.print("아이디: ");
+		String id = sc.nextLine();
+		System.out.print("비밀번호: ");
+		String pwd = sc.nextLine();
+		System.out.print("닉네임: ");
+		String nick = sc.nextLine();
+		
+		//데이터 뭉치기
+		MemberData memberData = new MemberData(id, pwd, nick);
+		
+		//할일 //저장공간(메모장)에 저장
+		boolean result;
+		try{
+			result = dao.join(memberData);
+		}catch(Exception e) {
+			result = false;
+		}
+		
+		
+	}
+	
+}//class

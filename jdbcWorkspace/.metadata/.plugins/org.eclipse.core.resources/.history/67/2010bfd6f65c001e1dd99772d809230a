@@ -1,0 +1,152 @@
+package member;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+import db.util.JDBCTemplate;
+
+public class MemberController {
+	
+	//멤버 변수 == 필드
+	private Scanner sc;
+	
+	//기본 생성자
+	public MemberController() {
+		sc = new Scanner(System.in);
+	}
+	
+	public void selectMenu() throws Exception {
+		System.out.println("1. 회원가입");
+		System.out.println("2. 로그인");
+		
+		String num = sc.nextLine();
+		
+		switch(num) {
+		case "1" : join(); break;
+		case "2" : login(); break;
+		}
+	}
+	
+	public void join() {
+		
+		System.out.println("회원가입 ~~~");
+		
+//		//연결 준비
+//		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+//		String username = "C##KH_JDBC";
+//		String pwd = "1234";
+//		
+//		//디비 연결 == conn 얻기
+//		Connection conn = DriverManager.getConnection(url, username, pwd);
+		
+		Connection conn = JDBCTemplate.getConnection();
+		
+		//데이터 입력받기
+		System.out.print("아이디: ");
+		String userId = sc.nextLine();
+		System.out.print("비밀번호: ");
+		String userPwd = sc.nextLine();
+		
+		PreparedStatement pstmt = null;
+		Connection conn;
+		try {
+			conn = JDBCTemplate.getConnection();
+			//쿼리 실행
+			String sql = "INSERT INTO MEMBER(ID,PWD) VALUES (?, ?)";
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setString(1, userId);
+			pstmt.setString(2, userPwd);
+			int result = pstmt.executeUpdate();
+			
+			//결과 처리
+			if(result == 1) {
+				conn.commit();
+				System.out.println("회원가입 성공 !!!");
+			}else {
+				throw new Exception();
+			}
+		}catch(Exception e) {
+			try {
+				conn.rollback();
+			}catch(Exception e1) {
+				
+			}
+			System.out.println("회원가입 실패 ...");
+			
+		}finally {
+			//자원 반납
+			try {
+				if(pstmt != null && !pstmt.isClosed()) {   //null point exception 피하려고 null 체크를 하는 것이다!!!
+					pstmt.close();                         //null이 아닐때만 동작하라는 의미
+				}
+			}catch(Exception e) {
+				
+			}
+			
+			try {
+				if(conn != null && !conn.isClosed()) {
+					conn.close();
+				}
+			}catch(Exception e) {
+				
+			}
+		}
+		
+	}//join end
+	
+	
+	public void login() {
+		
+		System.out.println("로그인 ~~~");
+		
+//		//연결 준비
+//		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+//		String username = "C##KH_JDBC";
+//		String pwd = "1234";
+//		
+//		//디비 연결 == conn 얻기
+//		Connection conn = DriverManager.getConnection(url, username,pwd);
+		
+		// 입력받기
+		System.out.print("아이디: ");
+		String userId = sc.nextLine();
+		System.out.print("패스워드: ");
+		String userPwd = sc.nextLine();
+		
+		try {
+			//conn  얻기
+			Connection conn = JDBCTemplate.getConnection();
+			
+			//쿼리 실행
+			String sql = "SELECT * FROM MEMBER WHERE ID = ? AND PWD = ?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,userId);            //이미 회원가입때 null처리 해줘서 여기 pstmt는 따로 null처리 할 필요 없다.
+			pstmt.setString(2,userPwd);
+			ResultSet rs = pstmt.executeQuery();
+			
+			//결과 처리
+			if(rs.next()) {
+				System.out.println("로그인 성공 !!!");
+			}else {
+				System.out.println("로그인 실패 ...");
+			}
+			
+		}catch(Exception e) {
+			
+		}finally {
+			
+		}
+	
+		//자원반납
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+	}//login end
+	
+	
+
+}//class

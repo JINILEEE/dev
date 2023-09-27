@@ -1,0 +1,15 @@
+package main;
+
+public class MainBoardDataPractice {
+
+	public static void main(String[] args) {
+
+		System.out.println("===== 게시글 관리 =====");
+		
+		//게시글 작성
+		
+		//게시글 조회
+		
+	}
+
+}

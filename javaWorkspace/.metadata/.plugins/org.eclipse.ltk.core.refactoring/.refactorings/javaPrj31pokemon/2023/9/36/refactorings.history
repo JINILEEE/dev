@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;manager.PokemonMnager&apos; to &apos;PokemonManager&apos;&#x0D;&#x0A;- Original project: &apos;javaPrj31pokemon&apos;&#x0D;&#x0A;- Original element: &apos;manager.PokemonMnager&apos;&#x0D;&#x0A;- Renamed element: &apos;manager.PokemonManager&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;PokemonMnager&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;manager{PokemonMnager.java[PokemonMnager" matchStrategy="1" name="PokemonManager" qualified="false" references="true" similarDeclarations="false" stamp="1693811673243" textual="false" version="1.0"/>
+</session>

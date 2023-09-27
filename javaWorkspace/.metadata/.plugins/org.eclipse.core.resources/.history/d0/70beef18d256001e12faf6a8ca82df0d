@@ -1,0 +1,49 @@
+package memberData;
+
+public class BoardData {
+
+	//기본 생성자
+	public BoardData() {
+		
+	}
+	
+	//모든필드채우는생성자
+	public BoardData(String title, String content, String writer) {
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+	}
+	
+	//필드 == 멤버변수
+	private String title;
+	private String content;
+	private String writer;
+	
+	//getter/setter
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+	
+	@Override
+	public String toString() {
+		return "BoardData [Title: " + title + ", Content: " + content+ ", Writer: " + writer;
+	}
+	
+	
+	
+}

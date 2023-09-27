@@ -1,0 +1,16 @@
+package main;
+
+//import memberData.BoardData;
+
+public class Main2 {
+
+	public static void main(String[] args) {
+
+		System.out.println("===== BoardData =====");
+		
+//		BoardData bd = new BoardData();
+//		System.out.println(bd);
+		
+	}
+
+}

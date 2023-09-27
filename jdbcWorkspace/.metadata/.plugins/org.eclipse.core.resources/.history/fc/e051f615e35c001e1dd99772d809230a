@@ -1,0 +1,19 @@
+package db.util;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class JDBCTemplate {
+
+	
+	public static Connection getConnection() throws Exception {
+		
+		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+		String username = "C##KH_JDBC";
+		String pwd = "1234";
+		Connection conn = DriverManager.getConnection(url, username, pwd);
+		
+		return conn;
+	}
+	
+}

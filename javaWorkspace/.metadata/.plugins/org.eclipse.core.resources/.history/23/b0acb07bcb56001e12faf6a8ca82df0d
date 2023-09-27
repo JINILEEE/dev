@@ -1,0 +1,30 @@
+package memberData;
+
+public class BoardData {
+
+	//기본 생성자
+	public BoardData() {
+		
+	}
+	
+	//모든필드채우는생성자
+	public BoardData(String title, String content, String write) {
+		this.title = title;
+		this.content = content;
+		this.write = write;
+	}
+	
+	//필드 == 멤버변수
+	private String title;
+	private String content;
+	private String write;
+	
+	//getter/setter
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+}

@@ -1,0 +1,21 @@
+package member;
+
+import java.io.File;
+
+public class MemberDao {
+
+	//필드 == 멤버변수
+	private File file;
+	
+	//회원가입
+	public void join() {
+		
+	}
+	
+	//로그인
+	public void login() {
+		
+	}
+	
+	
+}//class

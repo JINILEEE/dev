@@ -1,0 +1,14 @@
+package db.util;
+
+public class JDBCTemplate {
+
+	//연결 준비
+	
+	//디비 연결 == conn 얻기
+	
+	
+	public void method01() {
+		
+	}
+	
+}

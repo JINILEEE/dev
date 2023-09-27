@@ -1,0 +1,27 @@
+package main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		
+		System.out.println("JDBC 프로젝트");
+		
+		// 연결정보 준비
+		String url = "jdbc:oracle:thin:@IP:127.0.0.1:xe";  //@IP:ip주소 : db name
+		String username = "C##KH";
+		String pwd = "1234";
+		
+		// DB 연결해서 Connection 얻기
+		Connection conn = DriverManager.getConnection(url, username, pwd);
+		
+		
+		// 쿼리문 실행 및 결과받기
+		
+		
+		
+	}
+
+}

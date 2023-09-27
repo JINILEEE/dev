@@ -1,0 +1,25 @@
+package member;
+
+public class MemberController {
+
+	//회원가입
+	public void join() {
+		// 아이디, 비번, 닉네임 입력받기
+		
+		
+		//저장
+		
+		
+	}
+	
+	//로그인
+	public void login() {
+		//아이디, 비번 입력받기
+		
+		//저장된 데이터 꺼내기
+		
+		//비교
+		
+	}
+	
+}//class

@@ -1,0 +1,39 @@
+package boardData;
+
+public class BoardController {
+
+	//게시글 작성
+	public void write() {
+		System.out.println("----- 게시글 작성 -----");
+		
+		//데이터 입력받기
+		
+		
+		//데이터 입력받기
+		
+		//할일
+		
+		
+		//결과출력
+		
+	}
+	
+	
+	//게시글 조회
+	public void find() {
+		
+		//데이터 입력받기
+		
+
+		//데이터 입력받기
+		
+		//할일
+		
+		
+		//결과출력
+		
+	}
+	
+	
+	
+}//class

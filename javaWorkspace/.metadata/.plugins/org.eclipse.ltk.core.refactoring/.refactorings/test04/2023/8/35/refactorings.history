@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;main.UpdownGame&apos; to &apos;UpDownGame&apos;&#x0D;&#x0A;- Original project: &apos;test04&apos;&#x0D;&#x0A;- Original element: &apos;main.UpdownGame&apos;&#x0D;&#x0A;- Renamed element: &apos;main.UpDownGame&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;UpdownGame&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;main{UpdownGame.java[UpdownGame" matchStrategy="1" name="UpDownGame" qualified="false" references="true" similarDeclarations="false" stamp="1693220827688" textual="false" version="1.0"/>
+</session>

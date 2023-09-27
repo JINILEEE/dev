@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;main.Fisgerman&apos; to &apos;Fisherman&apos;&#x0D;&#x0A;- Original project: &apos;javaPrj39interface&apos;&#x0D;&#x0A;- Original element: &apos;main.Fisgerman&apos;&#x0D;&#x0A;- Renamed element: &apos;main.Fisherman&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Fisgerman&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;main{Fisgerman.java[Fisgerman" matchStrategy="1" name="Fisherman" qualified="false" references="true" similarDeclarations="false" stamp="1694071846659" textual="false" version="1.0"/>
+</session>

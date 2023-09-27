@@ -1,0 +1,16 @@
+package memberData;
+
+public class MemberDao {
+
+	//필드 == 멤버변수
+	private File file;
+	
+	//회원가입 //파라미터로 전달받은 데이터 저장공간에 넣기
+	public void join(MemberData memberData) {
+		
+		//할일
+		FileWriter fw = new FileWriter(file);
+		
+	}
+	
+}//class

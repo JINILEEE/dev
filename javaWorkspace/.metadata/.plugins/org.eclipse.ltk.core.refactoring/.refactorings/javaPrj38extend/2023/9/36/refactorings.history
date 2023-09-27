@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;main.Cafe&apos; to &apos;CounterEmp&apos;&#x0D;&#x0A;- Original project: &apos;javaPrj38extend&apos;&#x0D;&#x0A;- Original element: &apos;main.Cafe&apos;&#x0D;&#x0A;- Renamed element: &apos;main.CounterEmp&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Cafe&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;main{Cafe.java[Cafe" matchStrategy="1" name="CounterEmp" qualified="false" references="true" similarDeclarations="false" stamp="1694068189703" textual="false" version="1.0"/>
+</session>

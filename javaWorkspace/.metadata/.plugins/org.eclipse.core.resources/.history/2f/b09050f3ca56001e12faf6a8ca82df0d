@@ -1,0 +1,21 @@
+package memberData;
+
+public class BoardData {
+
+	//기본 생성자
+	public BoardData() {
+		
+	}
+	
+	//모든필드채우는생성자
+	public BoardData(String title, String content, String write) {
+		this.title = title;
+		this.content = content;
+		this.write = write;
+	}
+	
+	private String title;
+	private String content;
+	private String write;
+	
+}

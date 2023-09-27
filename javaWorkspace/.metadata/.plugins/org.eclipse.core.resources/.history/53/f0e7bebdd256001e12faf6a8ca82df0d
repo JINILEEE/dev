@@ -1,0 +1,10 @@
+package boardData;
+
+public class BoardData {
+
+	//멤버 변수== 필드
+	private String title;
+	private String content;
+	private String writer;
+	
+}

@@ -1,0 +1,23 @@
+package memberData;
+
+import java.util.Scanner;
+
+public class MemberController {
+
+	//필드
+	Scanner sc;
+	
+	//기본 생성자(파라미터x)//초기값 셋팅
+	sc = new Scanner(System.in);
+	
+	//회원가입
+	public void join() {
+		System.out.println("----- 회원가입 -----");
+		
+		//데이터 입력받기
+		System.out.print("아이디: ");
+		
+		
+	}
+	
+}//class

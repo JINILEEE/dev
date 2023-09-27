@@ -1,0 +1,30 @@
+package member;
+
+import java.util.Scanner;
+
+public class MemberController {
+	
+	//필드
+	private Scanner sc;
+	private MemberDao dao;
+	
+	//기본 생성자(파라미터 x)
+	public MemberController() {
+		sc = new Scanner(System.in);
+		dao = new MemberDao();
+	}
+	
+	
+	//회원가입
+	public void join() {
+		
+	}
+	
+	//로그인
+	public void login() {
+		
+	}
+	
+	
+	
+}//class

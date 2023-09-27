@@ -1,0 +1,36 @@
+package main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class Main {
+		
+	Scanner sc = new Scanner(System.in);
+	
+	public static void main(String[] args) throws Exception {
+
+		System.out.println("----- 회원가입 -----");
+		
+		//db 연결 준비
+		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+		String username = "C##KH_JDBC";
+		String pwd = "1234";
+		
+		//db 연결 == conn 얻기
+		Connection conn = DriverManager.getConnection(url, username, pwd);
+		
+		//쿼리 실행
+		String sql = "INSERT INTO MEMBER(ID, PWD) VALUES ('" + 변수 + "' , '"+ 변수 + "')";
+		
+		Statement stmt = conn.createStatement();
+		int result = stmt.executeUpdate(sql);
+		
+		System.out.println("result: " + result);
+		
+		
+		
+	}//main
+
+}//class
