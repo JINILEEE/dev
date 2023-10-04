@@ -69,7 +69,7 @@ SELECT TRUNC(AVG(POINT), 1)AS 평점
 FROM TB_GRADE
 WHERE STUDENT_NO = 'A517178';
 
--- 10번
+-- 10번  -- 20231004 이날까지는 못푸는 문제
 -- 학과별 학생 수를 구하여 "학과번호", "학생수(명)"의 형태로 칼럼명을 만들어 결과값이 출력되도록 하시오.
 SELECT DISTINCT DEPARTMENT_NO AS 학과번호, SUM(CAPACITY) AS "학생수(명)"
 FROM TB_DEPARTMENT;
@@ -80,7 +80,7 @@ SELECT COUNT(*)
 FROM TB_STUDENT
 WHERE COACH_PROFESSOR_NO IS NULL;
 
--- 12번
+-- 12번  --group by 들어간건 다 못푼다!!
 -- 학번이 A112113인 김고운 학생의 년도 별 평점을 구하는 SQL문을 작성하시오.
 -- 단, 이때 출력화면의 헤더는 "년도", "년도 별 평점"이라고 찍히게 하고, 점수는 반올림하여 소수점 이하 한자리까지만 표시한다.
 SELECT AVG(POINT)
@@ -103,6 +103,10 @@ FROM TB_STUDENT;
 -- 15번
 -- 학번이 A112113인 김고운 학생의 년도, 학기 별 평점과 년도 별 누적 평점, 총 평점을 구하는 SQL문을 작성하시오.
 -- (단, 평점은 소수점 1자리까지만 반올림하여 표시한다.)
-SELECT *
+SELECT SUBSTR(TERM_NO,1,4) AS 년도, 
+       SUBSTR(TERM_NO,5,2) AS 학기, 
+       ROUND(AVG(POINT),1) AS 평점
 FROM TB_GRADE
-WHERE STUDENT_NO = 'A112113';
+WHERE STUDENT_NO = 'A112113'
+GROUP BY ROLLUP(SUBSTR(TERM_NO,1,4),SUBSTR(TERM_NO,5,2))
+ORDER BY SUBSTR(TERM_NO,1,4);
