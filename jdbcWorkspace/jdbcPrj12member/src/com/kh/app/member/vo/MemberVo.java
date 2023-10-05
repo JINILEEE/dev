@@ -1,17 +1,19 @@
-package com.kh.app.vo;
+package com.kh.app.member.vo;
 
 public class MemberVo {
 	
 	public MemberVo() {
 	}
 	
-	public MemberVo(String id, String pwd) {
+	public MemberVo(String id, String pwd, String nick) {
 		this.id = id;
 		this.pwd = pwd;
+		this.nick = nick;
 	}
-
+	
 	private String id;
 	private String pwd;
+	private String nick;
 	
 	public String getId() {
 		return id;
@@ -29,9 +31,17 @@ public class MemberVo {
 		this.pwd = pwd;
 	}
 
+	public String getNick() {
+		return nick;
+	}
+
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
+
 	@Override
 	public String toString() {
-		return "MemberVo [id=" + id + ", pwd=" + pwd + "]";
+		return "MemberVo [id=" + id + ", pwd=" + pwd + ", nick=" + nick + "]";
 	}
-	
+
 }

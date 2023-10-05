@@ -11,6 +11,6 @@ public class Main {
 		MemberController mc = new MemberController();
 		mc.selectMenu();
 		
-	}
+	}//main
 
-}
+}//class
