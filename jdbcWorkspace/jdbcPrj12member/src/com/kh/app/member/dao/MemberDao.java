@@ -29,18 +29,33 @@ public class MemberDao {
 	}// join end
 	
 	// 로그인
-	public MemberVo login(Connection conn, MemberVo vo) {
+	public MemberVo login(Connection conn, MemberVo vo) throws Exception{
 		// sql
 		String sql = "SELECT * FROM MEMBER WHERE ID = ? AND PWD = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, vo.getId());
+		pstmt.setString(2, vo.getPwd());
+		ResultSet rs = pstmt.executeQuery();
 		
 		// rs
+		MemberVo dbVo = null;
+		if(rs.next()) {
+			String dbId = rs.getString("ID");
+			String dbPwd = rs.getString("PWD");
+			String dbNick = rs.getString("NICK");
+			
+			dbVo = new MemberVo();
+			dbVo.setId(dbId);
+			db
+		}
+		
 		// close
 
-		return null;
+		return dbVo;
 	}// login end
 
 	// 전체 회원목록 조회
-	public ArrayList<MemberVo> getMemberList() {
+	public ArrayList<MemberVo> getMemberList(Connection conn) {
 		// sql
 		// rs
 		// close
@@ -65,11 +80,20 @@ public class MemberDao {
 	}// quit end
 
 	// 비밀번호 변경
-	public int editPwd(MemberVo vo, String newPwd) {
+	public int editPwd(Connection conn, MemberVo vo, String newPwd) throws Exception {
 		// sql
+		String sql = "UPDATE MEMBER SET PWD = ? WHERE ID = ? AND PWD = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, newPwd);
+		pstmt.setString(2, vo.getId());
+		pstmt.setString(3, vo.getPwd());
+		int result = pstmt.executeUpdate();
+		
 		// rs
 		// close
-		return 0;
+		JDBCTemplate.close(pstmt);
+		
+		return result;
 	}//editPwd end
 
 }

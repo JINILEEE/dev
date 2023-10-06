@@ -67,15 +67,21 @@ public class MemberController {
 		vo.setPwd(pwd);
 		
 		// 서비스 호출
-		MemberVo dbVo = ms.login(vo);
+		try {
+			MemberVo dbVo = ms.login(vo);
+			// 결과처리
+			if(dbVo != null) {
+				System.out.println("로그인 성공");
+				System.out.println("로그인 유저 정보: " + vo);
+			}else {
+				throw new Exception();
+			}
+		}catch(Exception e) {
+			System.out.println("로그인 실패");
+			e.printStackTrace();
+		}
 		
 
-		// 결과처리
-		if(dbVo != null) {
-			System.out.println("로그인 성공");
-		}else {
-			System.out.println("로그인 실패");
-		}
 		
 	}//login end
 	
@@ -125,21 +131,28 @@ public class MemberController {
 		// 데이터
 		System.out.print("아이디: ");
 		String id = sc.nextLine();
-		System.out.print("비밀번호: ");
+		System.out.print("현재 비밀번호: ");
 		String pwd = sc.nextLine();
+		System.out.print("새 비밀번호: ");
+		String newPwd = sc.nextLine();
 		
 		MemberVo vo = new MemberVo();
 		vo.setId(id);
 		vo.setPwd(pwd);
 		
 		// 서비스 호출
-		int result = ms.editPwd(vo);
-
-		// 결과처리
-		if(result == 1) {
-			System.out.println("비밀번호 변경 성공");
-		}else {
+		try {
+			int result = ms.editPwd(vo, newPwd);
+			
+			// 결과처리
+			if(result == 1) {
+				System.out.println("비밀번호 변경 완료");
+			}else {
+				throw new Exception();
+			}
+		}catch(Exception e) {
 			System.out.println("비밀번호 변경 실패");
+			e.printStackTrace();
 		}
 
 	}//editPwd end

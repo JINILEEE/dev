@@ -40,7 +40,7 @@ public class MemberService {
 	}//join end
 	
 	//로그인
-	public MemberVo login(MemberVo vo) {
+	public MemberVo login(MemberVo vo) throws Exception {
 		
 		// conn
 		Connection conn = JDBCTemplate.getConnection();
@@ -56,7 +56,7 @@ public class MemberService {
 	}//login end
 	
 	//전체 회원목록 조회
-	public ArrayList<MemberVo> getMemberList(Connection conn) {
+	public ArrayList<MemberVo> getMemberList() {
 		// conn
 
 		// dao
@@ -88,15 +88,24 @@ public class MemberService {
 	}//quit end
 	
 	//비밀번호 변경
-	public int editPwd(Connection conn, MemberVo vo, String newPwd) {
+	public int editPwd(MemberVo vo, String newPwd) throws Exception {
 		// conn
-
+		Connection conn = JDBCTemplate.getConnection();
+		
 		// dao
-
+		int result = dao.editPwd(conn, vo, newPwd);
+		
 		// tx
+		if(result == 1) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
 
 		// close
-		return 0;
+		JDBCTemplate.close(conn);
+		
+		return result;
 	}//editPwd end
 
 }
