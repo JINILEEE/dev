@@ -95,6 +95,114 @@ WHERE DEPT_CODE = (
                     )
                     AND EMP_NAME != '전지연';
 
+/*
+    <다중행 서브 쿼리>
+        서브 쿼리의 조회 결과 값의 행의 개수가 여러 행 일 때
+        
+        IN / NOT IN (서브 쿼리) : 여러 개의 결과값 중에서 한 개라도 일치하는 값이 있다면 혹은 없다면 TRUE를 리턴한다.
+        ANY : 여러 개의 값들 중에서 한 개라도 만족하면 TRUE, IN과 다른 점은 비교 연산자를 함께 사용한다는 점이다. 
+            ANY(100, 200, 300)
+            SALARY = ANY(...)  : IN과 같은 결과
+            SALARY != ANY(...) : NOT IN과 같은 결과
+            SALARY > ANY(...)  : 최소값 보다 크면 TRUE
+            SALARY < ANY(...)  : 최대값 보다 작으면 TRUE
+        ALL : 여러 개의 값들 모두와 비교하여 만족해야 TRUE, IN과 다른 점은 비교 연산자를 함께 사용한다는 점이다.
+            ALL(100, 200, 300)
+            SALARY > ALL(...)  : 최대값 보다 크면 TRUE
+            SALARY < ALL(...)  : 최소값 보다 작으면 TRUE
+*/
+
+-- 부서별 최고 급여를 받는 직원의 이름, 급여, 부서코드
+SELECT EMP_NAME, SALARY, DEPT_CODE
+FROM EMPLOYEE
+WHERE SALARY IN (
+                    SELECT MAX(SALARY)
+                    FROM EMPLOYEE
+                    GROUP BY DEPT_CODE
+                );
+
+-- 부사수가 있는 사원의 사번, 이름 조회
+SELECT EMP_ID AS 사번, EMP_NAME AS 이름
+FROM EMPLOYEE
+WHERE EMP_ID IN (
+                  SELECT DISTINCT(MANAGER_ID)
+                  FROM EMPLOYEE 
+                  WHERE MANAGER_ID IS NOT NULL
+                 );
+
+-- 대리 직급의 사원들 중,
+-- 과장 직급의 최소 급여보다 많이 받는 직원
+-- 직급, 사원명, 급여
+SELECT J.JOB_CODE AS 직급, E.EMP_NAME AS 사원명, E.SALARY AS 급여
+FROM EMPLOYEE E
+JOIN JOB J ON E.JOB_CODE = J.JOB_CODE
+WHERE J.JOB_NAME = '대리' 
+AND SALARY > ANY (
+                    SELECT E.SALARY
+                    FROM EMPLOYEE E
+                    JOIN JOB J ON E.JOB_CODE = J.JOB_CODE
+                    WHERE J.JOB_NAME = '과장' 
+                  );
+
+-- 다중 열 서브쿼리 
+
+-- 하이유 사원과 같은 부서코드, 같은 직급코드 에 해당하는 사원 이름, 부서코드, 직급코드 조회
+SELECT EMP_NAME, DEPT_CODE, JOB_CODE
+FROM EMPLOYEE
+WHERE (DEPT_CODE, JOB_CODE) = (
+                                SELECT DEPT_CODE, JOB_CODE
+                                FROM EMPLOYEE
+                                WHERE EMP_NAME = '하이유'
+                                );
+
+-- 다중행, 다중열 서브쿼리
+
+-- 인라인 뷰 (FROM 절 뒤에 서브쿼리 작성)
+SELECT *
+FROM (SELECT * FROM EMPLOYEE)
+;
+
+SELECT *
+FROM EMPLOYEE
+ORDER BY EMP_ID;
+
+-- TOP-N
+SELECT *
+FROM (
+        SELECT ROWNUM AS RNUM, EMP_ID, EMP_NAME, SALARY
+        FROM (
+                SELECT EMP_ID, EMP_NAME, SALARY
+                FROM EMPLOYEE 
+                ORDER BY SALARY DESC
+                )
+        )
+WHERE RNUM BETWEEN 4 AND 6;
+
+
+-- WITH
+
+/*
+    <RANK 함수>
+        [표현법]
+            RANK() OVER(정렬 기준) / DENSE_RANK() OVER(정렬 기준)
+        
+         RANK() OVER(정렬 기준)         : 동일한 순위 이후의 등수를 동일한 인원수만큼 건너뛰고 순위를 계산한다.
+                                         (EX. 공동 1위가 2명이면 다음 순위는 3위)
+         DENSE_RANK() OVER(정렬 기준)   : 동일한 순위 이후의 등수를 무조건 1씩 증가한다.
+                                         (EX. 공동 1위가 2명이면 다음 순위는 2위)
+*/
+
+--급여 높은 순으로 순위 매기기
+-- 급여순위, 사원명, 급여
+SELECT *
+FROM (
+        SELECT
+            DENSE_RANK()OVER (ORDER BY SALARY DESC) AS 급여순위
+            , EMP_NAME
+            , SALARY
+        FROM EMPLOYEE
+)
+WHERE 급여순위 <= 3;
 
 
 
@@ -102,5 +210,12 @@ WHERE DEPT_CODE = (
 
 
 
+
+
+
+
+SELECT * FROM EMPLOYEE;
+SELECT * FROM DEPARTMENT;
+SELECT * FROM JOB;
 
 
