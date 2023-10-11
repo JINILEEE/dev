@@ -138,33 +138,61 @@ AND G.TERM_NO LIKE '2007%';
 -- 예체능 계열 과목 중 과목 담당교수를 한 명도 배정받지 못한 과목을 찾아 
 -- 그 과목 이름과 학과 이름을 출력하는 SQL 문장을 작성하시오.
 -- 결과 행의 수는 동일하나 정렬 기준이 없어 다른 순서를 보임
-
-
-
-SELECT * FROM TB_PROFESSOR;
-SELECT * FROM TB_GRADE;
-SELECT * FROM TB_CLASS;
-SELECT * FROM TB_CLASS_PROFESSOR;
-SELECT * FROM TB_DEPARTMENT;
-SELECT * FROM TB_STUDENT;
-
-
+SELECT
+    C.CLASS_NAME
+    , D.DEPARTMENT_NAME
+FROM TB_DEPARTMENT D
+JOIN TB_CLASS C ON D.DEPARTMENT_NO = C.DEPARTMENT_NO
+JOIN TB_CLASS_PROFESSOR CP ON C.CLASS_NO = CP.CLASS_NO
+WHERE D.CATEGORY = '예체능'
+AND PROFESSOR_NO IS NULL
+ORDER BY 2,1;
 
 -- 14번
 -- 춘 기술대학교 서반아어학과 학생들의 지도교수를 게시하고자 한다. 
 -- 학생이름과 지도교수 이름을 찾고 만일 지도 교수가 없는 학생일 경우
 -- "지도교수 미지정"으로 표시하도록 하는 SQL 문을 작성하시오. 
 -- 단 출력헤더는 "학생이름", "지도교수"로 표시하며 고학번 학생이 먼저 표시되도록 한다.
-
+SELECT 
+    S.STUDENT_NAME AS 학생이름
+    , NVL(P.PROFESSOR_NAME, '지도교수 미지정') AS 지도교수
+FROM TB_STUDENT S
+JOIN TB_DEPARTMENT D ON S.DEPARTMENT_NO = D.DEPARTMENT_NO
+JOIN TB_PROFESSOR P ON S.COACH_PROFESSOR_NO = P.PROFESSOR_NO
+WHERE D.DEPARTMENT_NAME = '서반아어학과'
+ORDER BY S.STUDENT_NO;
 
 -- 15번
 -- 휴학생이 아닌 학생 중 평점이 4.0 이상인 학생을 찾아 
 -- 그 학생의 학번, 이름, 학과, 이름, 평점을 출력하는 SQL문을 작성하시오.
-
+SELECT
+    S.STUDENT_NO AS 학번
+    , S.STUDENT_NAME 이름
+    , D.DEPARTMENT_NAME "학과 이름"
+    , AVG(POINT)평점
+FROM TB_STUDENT S
+JOIN TB_GRADE G ON S.STUDENT_NO = G.STUDENT_NO
+JOIN TB_DEPARTMENT D ON S.DEPARTMENT_NO = D.DEPARTMENT_NO
+WHERE S.ABSENCE_YN = 'N'
+GROUP BY 
+    S.STUDENT_NO
+    , S.STUDENT_NAME 
+    , D.DEPARTMENT_NAME
+HAVING AVG(G.POINT) >=4.0
+ORDER BY 1;
 
 -- 16번
 -- 환경조경학과 전공과목들의 과목 별 평점을 파악할 수 있는 SQL 문을 작성하시오.
-
+SELECT 
+    C.CLASS_NAME AS 전공과목
+    , AVG(G.POINT) AS "과목 별 평점" 
+FROM TB_GRADE G
+JOIN TB_CLASS C ON G.CLASS_NO = C.CLASS_NO
+JOIN TB_DEPARTMENT D ON C.DEPARTMENT_NO = D.DEPARTMENT_NO
+WHERE D.DEPARTMENT_NAME = '환경조경학과'
+AND C.CLASS_TYPE LIKE '%전공%'
+GROUP BY C.CLASS_NAME
+ORDER BY 1;
 
 -- 17번
 -- 춘 기술대학교에 다니고 있는 최경희 학생과 같은 과 학생들의 이름과 주소를 출력하는 SQL 문을 작성하시오.
@@ -173,14 +201,43 @@ FROM TB_STUDENT
 WHERE DEPARTMENT_NO = (SELECT DEPARTMENT_NO
                        FROM TB_STUDENT
                        WHERE STUDENT_NAME = '최경희');
-                       
+
 -- 18번
 -- 국어국문학과에서 총점수가 가장 높은 학생의 이름과 학번을 표시하는 SQL문을 작성하시오
-
-
+SELECT
+    S.STUDENT_NO AS 학번
+    , S.STUDENT_NAME AS 학생이름
+FROM TB_STUDENT S 
+JOIN TB_GRADE G ON S.STUDENT_NO = G.STUDENT_NO
+JOIN TB_DEPARTMENT D ON S.DEPARTMENT_NO = D.DEPARTMENT_NO 
+WHERE D.DEPARTMENT_NAME = '국어국문학과'
+GROUP BY S.STUDENT_NO, S.STUDENT_NAME
+HAVING AVG(POINT) = (
+                        SELECT MAX(AVG(G.POINT))
+                        FROM TB_STUDENT S
+                        JOIN TB_DEPARTMENT D ON S.DEPARTMENT_NO = D.DEPARTMENT_NO
+                        JOIN TB_GRADE G ON S.STUDENT_NO = G.STUDENT_NO
+                        WHERE D.DEPARTMENT_NAME = '국어국문학과'
+                        GROUP BY S.STUDENT_NO
+                        );
 
 -- 19번
 -- 춘 기술대학교의 "환경조경학과"가 속한 같은 계열 학과들의 
 -- 학과 별 전공과목 평점을 파악하기 위한 적절한 SQL문을 찾아내시오.
 -- 단, 출력헤더는 "계열 학과명", "전공평점"으로 표시되도록 하고, 
 -- 평점은 소수점 한자리까지만 반올림하여 표시되도록 한다.
+SELECT 
+    D.DEPARTMENT_NAME "계열 학과명"
+    , ROUND(AVG(G.POINT),1) "전공평점"
+FROM TB_DEPARTMENT D
+JOIN TB_STUDENT S ON D.DEPARTMENT_NO = S.DEPARTMENT_NO
+JOIN TB_GRADE G ON S.STUDENT_NO = G.STUDENT_NO
+JOIN TB_CLASS C ON G.CLASS_NO = C.CLASS_NO
+WHERE D.CATEGORY = (
+                    SELECT CATEGORY
+                    FROM TB_DEPARTMENT 
+                    WHERE DEPARTMENT_NAME = '환경조경학과'
+                    )
+AND C.CLASS_TYPE LIKE '%전공%'
+GROUP BY D.DEPARTMENT_NAME
+ORDER BY 1;

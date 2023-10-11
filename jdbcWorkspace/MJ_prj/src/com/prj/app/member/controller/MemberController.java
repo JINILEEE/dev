@@ -2,14 +2,19 @@ package com.prj.app.member.controller;
 
 import java.util.Scanner;
 
+import com.prj.app.member.service.MemberService;
+import com.prj.app.member.vo.MemberVo;
+
 public class MemberController {
 	
 	//필드 == 멤버변수
 	private final Scanner sc;
+	private final MemberService ms;
 	
 	//기본 생성자
 	public MemberController() {
 		sc = new Scanner(System.in);
+		ms = new MemberService();
 	}
 			
 	// 메뉴선택
@@ -17,7 +22,8 @@ public class MemberController {
 		System.out.println("1. 캐릭터 생성");
 		System.out.println("2. 캐릭터 선택");
 		System.out.println("3. 캐릭터 목록 조회");
-		System.out.println("4. 캐릭터 삭제");
+		System.out.println("4. 캐릭터 키우기");
+		System.out.println("5. 캐릭터 삭제");
 		
 		String num = sc.nextLine();
 		
@@ -25,8 +31,9 @@ public class MemberController {
 		case "1" : generate();break;
 		case "2" : select();break;
 		case "3" : printList();break;
-		case "4" : delete();break;
-		default : 	
+		case "4" : raise();break;
+		case "5" : delete();break;
+		default : System.out.println("1 - 5 사이의 숫자를 골라주세요.")	;
 		}
 		
 	}//selectMenu end
@@ -37,7 +44,20 @@ public class MemberController {
 		
 		System.out.println("------- 캐릭터 생성 -------");
 		
+		//데이터 입력받기
+		System.out.print("캐릭터 이름: ");
+		String charName = sc.nextLine();
+		System.out.print("접속코드: ");
+		String charPwd = sc.nextLine();
 		
+		MemberVo vo = new MemberVo();
+		vo.setCharName(charName);
+		vo.setCharPwd(charPwd);
+		
+		//서비스 호출
+//		int result = ms.generate(vo);
+		
+		//결과 출력
 		
 	}//generate end
 	
@@ -45,17 +65,55 @@ public class MemberController {
 	// 캐릭터 선택
 	public void select() {
 		
+		System.out.println("------- 캐릭터 선택 -------");
+		
+		//데이터 입력받기
+		
+		//서비스 호출
+		
+		//결과 출력
+		
 	}//select end
 	
 	
 	// 캐릭터 목록 조회
 	public void printList() {
 		
+		System.out.println("------- 전체 캐릭터 조회 -------");
+		
+		//데이터 입력받기
+
+		//서비스 호출
+		
+		//결과 출력
+
 	}//printList end
+	
+	
+	// 캐릭터 키우기 // 밥 주면 허기짐이 차서 일정량이 넘으면 잠자기로 넘어감
+	public void raise() {
+		
+		System.out.println("------- 캐릭터 키우기 -------");
+		
+		//데이터 입력받기
+		
+		//서비스 호출
+		
+		//결과 출력
+		
+	}//raise end
 	
 	
 	// 캐릭터 삭제
 	public void delete() {
+		
+		System.out.println("------- 캐릭터 삭제 -------");
+		
+		//데이터 입력받기
+
+		//서비스 호출
+		
+		//결과 출력
 		
 	}//delete end
 
