@@ -1,5 +1,6 @@
 package com.prj.app.member.controller;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.prj.app.member.service.MemberService;
@@ -55,9 +56,19 @@ public class MemberController {
 		vo.setCharPwd(charPwd);
 		
 		//서비스 호출
-//		int result = ms.generate(vo);
-		
-		//결과 출력
+		try {
+			int result = ms.generate(vo);
+			
+			//결과 출력
+			if(result == 1) {
+				System.out.println("캐릭터 생성 성공!!!");
+			}else {
+				throw new Exception();
+			}
+		}catch(Exception e) {
+			System.out.println("캐릭터 생성 실패...");
+			e.printStackTrace();
+		}
 		
 	}//generate end
 	
@@ -68,10 +79,33 @@ public class MemberController {
 		System.out.println("------- 캐릭터 선택 -------");
 		
 		//데이터 입력받기
+		System.out.print("접속할 캐릭터: ");
+		String charName = sc.nextLine();
+		System.out.print("접속 코드: ");
+		String charPwd = sc.nextLine();
+		
+		MemberVo vo = new MemberVo();
+		vo.setCharName(charName);
+		vo.setCharPwd(charPwd);
 		
 		//서비스 호출
+		MemberVo dbVo;
 		
-		//결과 출력
+		try {
+			dbVo = ms.select(vo);
+			
+			//결과 출력
+			if(dbVo != null) {
+				System.out.println("캐릭터 선택 완료!!!");
+				System.out.println("캐릭터 정보: " + vo);
+			}else {
+				throw new Exception();
+			}
+			
+		}catch(Exception e) {
+			System.out.println("캐릭터 선택 실패...");
+			e.printStackTrace();
+		}
 		
 	}//select end
 	
@@ -81,9 +115,9 @@ public class MemberController {
 		
 		System.out.println("------- 전체 캐릭터 조회 -------");
 		
-		//데이터 입력받기
-
 		//서비스 호출
+//		ArrayList<MemberVo> voList = ;
+		
 		
 		//결과 출력
 
