@@ -116,11 +116,21 @@ public class MemberController {
 		System.out.println("------- 전체 캐릭터 조회 -------");
 		
 		//서비스 호출
-//		ArrayList<MemberVo> voList = ;
-		
-		
-		//결과 출력
-
+		try {
+			ArrayList<MemberVo> voList = ms.printList();
+			
+			//결과 출력
+			if(voList.isEmpty()) {
+				System.out.println("캐릭터 없음...캐릭터를 생성해주세요!!");
+				return;
+			}
+			for(MemberVo vo : voList) {
+				System.out.println(vo);
+			}
+		}catch(Exception e) {
+			System.out.println("캐릭터 목록 조회 실패");
+			e.printStackTrace();
+		}
 	}//printList end
 	
 	
@@ -141,13 +151,28 @@ public class MemberController {
 	// 캐릭터 삭제
 	public void delete() {
 		
-		System.out.println("------- 캐릭터 삭제 -------");
+		System.out.println("------- 캐릭터 방출 -------");
 		
 		//데이터 입력받기
-
+		System.out.print("캐릭터 이름: ");
+		String charName = sc.nextLine();
+		System.out.print("접속코드: ");
+		String charPwd = sc.nextLine();
+		
+		MemberVo vo = new MemberVo();
+		vo.setCharName(charName);
+		vo.setCharPwd(charPwd);
+		
 		//서비스 호출
+		int result = ms.delete(vo);
 		
 		//결과 출력
+		if(result ==1) {
+			System.out.println("캐릭터 방출 성공");
+		}else {
+			throw new Exception();
+		}
+		
 		
 	}//delete end
 

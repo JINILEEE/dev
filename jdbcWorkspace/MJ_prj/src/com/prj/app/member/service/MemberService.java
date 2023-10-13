@@ -1,6 +1,7 @@
 package com.prj.app.member.service;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import com.prj.app.db.JDBCTemplate;
 import com.prj.app.member.dao.MemberDao;
@@ -54,16 +55,19 @@ public class MemberService {
 				
 	}//select end
 	
-	public void printList() {
+	public ArrayList<MemberVo> printList() throws Exception {
 		
 		//conn 얻기
+		Connection conn = JDBCTemplate.getConnection();
 
 		//dao 호출
+		ArrayList<MemberVo> voList = dao.printList(conn);
 		
 		//tx
 		
 		//close
-		
+		JDBCTemplate.close(conn);
+		return voList;
 	}//printList end
 	
 	public void raise() {
@@ -78,15 +82,24 @@ public class MemberService {
 
 	}//raise end
 	
-	public void delete() {
+	public int delete(MemberVo vo) {
 		
 		//conn 얻기
+		Connection conn = JDBCTemplate.getConnection();
 		
 		//dao 호출
+		int result = dao.delete(conn, vo);
 		
 		//tx
+		if(result == 1) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
 		
 		//close
+		JDBCTemplate.close(conn);
+		return result;
 		
 	}//delete end
 	
