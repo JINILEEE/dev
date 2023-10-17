@@ -21,7 +21,7 @@ public class MemberService {
 	 * close
 	 */
 	
-	//회원가입 insert ~~ 아이기, 비번, 닉네임
+	//회원가입 insert ~~ 아이디, 비번, 닉네임
 	public int join(MemberVo vo) throws Exception {
 		
 		//conn
@@ -57,6 +57,28 @@ public class MemberService {
 		JDBCTemplate.close(conn);
 		return x;
 	}//login end
+
+	//회원 탈퇴
+	public int quit(String no) throws Exception {
+		
+		//conn
+		Connection conn = JDBCTemplate.getConnection();
+		
+		//DAO
+		int result = dao.quit(conn, no);
+		
+		//tx
+		if(result == 1) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		//close
+		JDBCTemplate.close(conn);
+		return result;
+		
+	}//quit end
 	
 
 }
