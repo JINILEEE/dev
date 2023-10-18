@@ -63,9 +63,15 @@ public class BoardService {
 		Connection conn = JDBCTemplate.getConnection();
 		
 		//dao
+		int result = dao.increaseHit(conn,num);    // 게시글 조회하는 순간 일단 조회수 카운트 되도록 순서 먼저오게
 		BoardVo vo = dao.boardDetailByNo(conn,num);
 		
 		//tx
+		if(result == 1) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
 		
 		//close
 		JDBCTemplate.close(conn);

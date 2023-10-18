@@ -101,6 +101,23 @@ public class BoardDao {
 		return vo;
 		
 	}
+
+	// 조회수 증가
+	public int increaseHit(Connection conn, String num) throws Exception{
+		
+		// sql
+		String sql = "UPDATE BOARD SET HIT = HIT+1 WHERE NO = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, num);
+		int result = pstmt.executeUpdate();
+		
+		// rs
+		
+		// close
+		JDBCTemplate.close(pstmt);
+		return result;
+		
+	}
 	
 	
 }

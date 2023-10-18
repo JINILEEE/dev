@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 import com.kh.miniPractice.board.controller.BoardController;
 import com.kh.miniPractice.member.controller.MemberController;
+import com.kh.miniPractice.member.vo.MemberVo;
 
 public class Main {
 	
 	public static final Scanner SC = new Scanner(System.in);
-
+	public static MemberVo loginMember;
+	
 	public static void main(String[] args) {
 		
 		System.out.println("======= 미니 프로젝트 연습 =======");

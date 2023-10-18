@@ -18,11 +18,13 @@ public class MemberController {
 		System.out.println("======= MEMBER =======");
 		
 		System.out.println("1. 회원가입");
+		System.out.println("2. 로그인");
 		
 		String num = Main.SC.nextLine();
 		
 		switch(num) {
 		case "1" : join();break;
+		case "2" : login();break;
 		default : System.out.println("잘못 입력하셨습니다.");
 		}
 		
@@ -62,5 +64,36 @@ public class MemberController {
 		}
 		
 	}//join end
+	
+	// 로그인
+	public void login() {
+		
+		try {
+			System.out.println("------- 로그인 -------");
+			
+			// 데이터
+			System.out.print("아이디: ");
+			String id = Main.SC.nextLine();
+			System.out.print("패스워드: ");
+			String pwd = Main.SC.nextLine();
+			
+			MemberVo vo = new MemberVo();
+			vo.setId(id);
+			vo.setPwd(pwd);
+			
+			// 서비스
+			MemberVo x = service.login(vo);
+			
+			// 결과
+			if(x == null) {
+				throw new Exception();
+			}
+			Main.loginMember = x;
+			System.out.println("로그인 성공 !!!");
+		}catch(Exception e) {
+			System.out.println("로그인 실패 ...");
+			e.printStackTrace();
+		}
+	}//login end
 	
 }//class
