@@ -1,0 +1,100 @@
+/* 기본 css 제거 */
+body{
+    margin: 0px;
+}
+
+/* 화면 전체 */
+.wrap{
+    border:5px solid black;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box; /* 보더를 포함한 박스 사이즈를 지정한다는 의미 */
+    display: flex;
+    /* align-items: stretch; */ /* 기본값이라서 생략한것!! */
+}
+.sidebar{
+    width: 150px;
+    border: 1px solid black;
+}
+.main{
+    width: calc(100vw - 150px);
+    border: 1px solid black;
+    display: grid;
+    grid-template-rows: 1fr 3fr 6fr;
+    grid-template-columns: 1fr;
+}
+.header{
+    display: grid;
+    grid-template-columns: 6fr 8fr 1fr 1fr 6fr 3fr;
+    grid-template-rows: 60px;
+}
+.login-btn-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-btn{
+    width:70%;
+    height: 60%;
+
+    border-radius: 30px;
+    border: 1px solid lightgray;
+    color: blue;
+    background-color: white;
+}
+.mike-btn-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mike-btn{
+    width: 60%;
+    height: 60%;
+    border-radius: 50px;
+    background-color: lightgray;
+    border: none;
+}
+.search-input-area{
+    display:flex;
+    justify-content: right;   /* 검색창이 돋보기 버튼과 함께 붙어있으려고 */
+    align-items: center;
+}
+.search-input-area>input[type=text]{
+    width: 90%;
+    height: 50%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+.search-btn-area{
+    display: flex;
+    align-items: center;
+}
+.search-btn-area>button{
+    width: 70%;
+    height: 60%;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.ad{
+    display: grid;
+    grid-template-columns: 450px 700px ;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+}
+.ad>div:first-child{
+    grid-row: 1/3;
+}
+.card-area{
+    width: 400px;
+    height: 300px;
+    display: grid;
+    grid-template-rows: 200px 80px;
+    grid-template-columns: 1fr;
+    row-gap:20px;
+}
+.content{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+

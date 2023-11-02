@@ -1,0 +1,33 @@
+#wrap{
+    display: flex;
+
+    width: 350px;
+    height: 350px;
+    border: 5px dashed gray;
+
+    /*마시멜로 포장*/
+    flex-wrap: wrap;  /* 이걸 넣어줘야 아이템의 갯수가 초과하여 상자가 구겨져서 맞추는게 아니라
+                        혀지지 않고 내가 설정한 아이템 사이즈로 들어갈 만큼만 들어가고 밑에 새로정렬한다. */
+
+    /*중심축 기준 정렬 / 마시멜로 간격 조정 */
+    /* justify-content: space-evenly; */
+
+    /*교차축 기준 정렬 / 꼬챙이 위치 조정 */
+    /* align-items: center; */
+
+    /* 중심축 설정 */
+    /* flex-direction: row; */
+
+    /* 꼬챙이 간격 조정 */
+    align-content: center;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+}
+.box:nth-child(2){
+    background-color: blue;
+    align-self: center;
+    order:-1;
+}

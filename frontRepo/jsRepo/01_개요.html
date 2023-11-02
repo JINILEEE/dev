@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개요</title>
+</head>
+<body>
+    
+    <h1>개요</h1>
+
+    <hr>
+
+    <pre>
+        웹 브라우저에서 많이 사용되는 인터프리터 방식의 스크립트 언어(함수지향, 객체지향)
+        - 인터프리터 방식 : 컴파일 과정 없이 실행하면서 코드를 하나씩 읽어내는 방식이다. 
+        (코드에 문법에 오류가 있으면 실행 시점에 알 수 있다. 동시통역이라 생각하기!!! 실행을 해봐야 안다...
+        한 줄 읽고 해석하고, ... 자바스크립트 전까진 통역본을 받아본 다음 실행하는 방식으로)
+    </pre>
+
+    <h3>1. 자바스크립트 사용법</h3>
+
+    <pre>
+        내부
+        외부
+        인라인
+    </pre>
+
+    <hr>
+    <button onclick="document.write('<h1>동적으로 추가한 글자 ㅎㅎ</h1>');">버튼ㅋㅋ</button>
+
+    <!-- <script src="./01_개요.js"></script> -->
+  
+    <h3>2. 데이터 입출력</h3>
+    
+    <pre>
+        window.confirm
+        window.prompt
+        window.alert
+        document.write  <!-- 버튼 안에 넣어주면 버튼 클릭시 새로운 화면으로 넘어가게 된다. -->
+    </pre>
+
+    <script>
+        // window.alert('알람~~~!!');
+
+    //     x = confirm("당신은 성인인가요?);
+    //     console.log(x);
+
+        // x = prompt("당신의 이름은?");
+        // console.log(x);
+
+    </script>
+
+    <h3>3. 요소 선택</h3>
+
+    <div class="box" id="target">얖</div>
+
+    <script>
+        // x = document.querySelector("#target");
+        // x = document.querySelector(".box");
+        // x = document.querySelectorAll("div");
+        // console.log(x);
+
+        // 요소 가져와서 내부의 글자를 변경해보기
+        x = document.querySelector("#target");
+        x.innerHTML = '글자 변경 ㅎㅎㅎ';  //innerHTML은 content area를 변경해준다.
+        x.innerText = '글자<br>변경 ㅋㅋㅋ';  //innerText는 안에 텍스트만 변경해주므로 태그는 반영 안된다!!(여기선 <br>처리 안됨)
+        x.innerHTML = '글자<br>변경 ㅋㅋㅋ';  //ㅇㅒ는 <br> 처리도 된다. 안에 들어있는 HTML 모두 반영되므로
+
+        // 배경색 변경
+        // x.style.속성명 = 값; <- style을 작성한 거면 CSS에 접근가능
+        x.style.backgroundColor = "red"; // 반드시 따옴표 안에 값을 넣어줘야한다. inline스타일을 지정하는 것이라 좋은 방식은 아니다!
+        
+
+    </script>
+
+    <br><br><br>
+    <hr>
+    <br><br><br>
+
+    <button onclick="f01();">버튼ㅎㅎㅎ</button> <!-- 함수를 넣어줄때는 '함수이름()' 이렇게 넣어줘야한다!!!-->
+
+    <div id="kh">디브</div>
+
+    <script>
+        function f01(){
+            x = document.querySelector('#kh');
+            x.style.backgroundColor = 'red';
+        }
+    </script>
+
+</body>
+
+
+</html>

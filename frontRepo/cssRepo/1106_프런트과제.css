@@ -1,0 +1,68 @@
+/* 기본 css 제거 */
+body{
+    margin: 0px;
+}
+.wrap{
+    display: grid;
+    width: 100vw;
+    height: 2000px;
+    grid-template-rows: 1.5fr 1fr 10fr 3fr 23fr;
+}
+.header{
+    position: sticky;
+    width: 100%;
+    height: 80px;
+    top: 0px;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 6fr 3fr 2fr 1fr 3fr 1fr 6fr 5fr 2fr 6fr;
+}
+.left{
+    font-size: larger;
+}
+#right{
+    font-size: 14px;
+}
+h1{
+    font-family:"나눔바른펜";
+}
+.menu{
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 8fr 1fr 1.5fr 1.5fr 2fr 3fr 2.5fr 2.5fr 2.5fr 3fr 1.5fr 3fr 2.5fr 5fr 8fr;
+    /* 16개 */
+}
+.photo{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr;
+    border:1px solid black;
+}
+.photo>div{
+    align-items: center;
+    border: 1px solid blue;
+}
+.icon{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 2.5fr;
+    border:1px solid black;
+}
+.icon>div{
+    align-items: center;
+    border: 1px solid green;
+}
+.photo-2{
+    width: 100%;
+    height: 100%;
+    border:1px solid black;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개요_연습</title>
+
+    <style>
+        #t01{
+            background-color: gray;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>연습</h1>
+
+    <div id="t01"></div> <!-- tagName: div / id : t01 인 상태이다. -->
+
+    <span>zzz</span>
+
+    <input type="text">
+    <input id="abc" type="password">
+
+    <script>
+        // document.querySelector('#t01').value; // 이렇게 한줄로 적어도 되지만 너무 길어지니까 값을 담아주고 아래처럼 설정하기
+        
+        // DOM 선택
+        const x = document.querySelector('#t01');
+        console.log(x);
+
+        const y = document.querySelector('span');
+        console.log(y);
+
+        const z = document.querySelector('input[type=text]')
+        console.log(z);
+
+        const a = document.querySelector('#abc');
+        console.log(a);
+        const b = document.querySelector('input[type=password]'); // 이 방법을 더 선호한다.
+        console.log(b);
+    </script>
+
+</body>
+</html>

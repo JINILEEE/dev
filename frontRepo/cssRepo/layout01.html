@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문하기</title>
+    <style>
+        button[type=submit]{
+            width: 100%;
+        }
+        input[type=time]{
+            width: 100%;
+        }
+        table{
+            width: 400px;
+        }
+        /* 내가 tbody 작성하지 않아도 사이트의 html코드를 봐도 테이블 안에 자동으로 tbody가 생성되어 있다. */
+        table > tbody > tr:first-child > td:first-child{
+            width:30%;
+            background-color: red;
+        }
+        /* .second{
+            width: 70%;
+        } */
+
+    </style>
+</head>
+<body>
+    <h1>주문하기</h1>
+
+    <form>
+        <table>
+            <tr>
+                <td>고객명 : </td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>전화번호 : </td>
+                <td><input type="tel"></td>
+            </tr>
+            <tr>
+                <td>E-mail : </td>
+                <td><input type="email"></td>
+            </tr>
+        </table>
+
+        <fieldset>
+            <legend>피자 사이즈</legend>
+            <input type="radio" name="size" id="small" value="small">
+            <label for="small">Small</label>
+
+            <br><br>
+
+            <input type="radio" name="size" id="medium" value="medium">
+            <label for="medium">Medium</label>
+
+            <br><br>
+
+            <input type="radio" name="size" id="large" value="large">
+            <label for="large">Large</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>토핑 선택</legend>
+            <input type="checkbox" name="topping" id="bacon" value="bacon">
+            <label for="bacon">베이컨</label>
+            
+            <br><br>
+            
+            <input type="checkbox" name="topping" id="cheese" value="cheese">
+            <label for="cheese">치즈</label>
+            
+            <br><br>
+            
+            <input type="checkbox" name="topping" id="onion" value="onion">
+            <label for="onion">양파</label>
+            
+            <br><br>
+            
+            <!-- input에 id 작성한 이유는 클릭시 이름을 클릭해도 체크가 되도록 만들기 위해 만들어둔것! -->
+            <input type="checkbox" name="topping" id="mushroom" value="mushroom">
+            <label for="mushroom">버섯</label>
+        </fieldset>
+
+        <table>
+            <tr>
+                <td class="first">희망 배송 시간 : </td>
+                <td class="second" style="width: 70%; background-color: green;"><input type="time"></td>
+            </tr>
+            <tr>
+                <td>배송 시 요청사항 : </td>
+                <td><textarea rows="3"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">주문하기</button></td>
+            </tr>
+        </table>
+
+
+    </form>
+</body>
+</html>

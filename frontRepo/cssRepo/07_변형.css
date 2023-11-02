@@ -1,0 +1,27 @@
+.box{
+    border: 3px solid black;
+    width: 100px;
+    height: 100px;
+}
+/* translate: x축 변경 / trnaslateY: y축 변경 /  아래와 같으면 양축 다 변경 */
+#t01:hover{
+    transform: translate(50px, 50px);
+    transform: scaleX(2);      /* scaleX(2): x축으로 2배 늘어남 */
+    transform: scaleY(0.5);      /* scaleX(2): x축으로 2배 늘어남 */ 
+
+    transform: rotate(30deg);   /* 시계방향으로 30도 회전 */
+
+    transform: skewX(30deg);
+    transform: skew(30deg, -45deg);  
+
+    transform: translateX(50px) rotate(30deg) scale(2) skewY(30deg);
+    /* rotate3d의 경우 반드시 perspective를 줘야 깊이감을 주어 제대로 3d 인것을 확인할 수 있다!! */
+    transform: perspective(100px) rotate3d(1, 1, 0, 30deg);  /* 돌릴 축 값에 1 넣고 안돌릴 축은 0 넣기 */
+    transform: perspective(100px) rotateY(30deg);
+
+    transform: rotateY(60deg);
+    backface-visibility: hidden;
+}
+
+
+

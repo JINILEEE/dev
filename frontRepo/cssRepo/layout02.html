@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문관리</title>
+    <style>
+        input[type=text]{
+            width: 200px;
+        }
+        .first>div>label{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h1>주문관리</h1>
+    
+        <fieldset class="first">
+            <legend>주문자 정보</legend>
+            <br>
+            <div>
+                <label for="username">1.주문자명 : </label>
+                <input type="text" placeholder="name">
+            </div>
+            <br>
+            <div>
+                <label for="email">2.email : </label>
+                <input type="text" placeholder="1dragon@yaho.com">
+            </div>
+            <br>
+            <div>
+                <label for="homepage">3.홈페이지 : </label>
+                <input type="text" placeholder="http://">
+            </div>
+            <br>
+        </fieldset>
+
+        <fieldset id="second">
+            <legend>주문정보</legend>
+            <br>
+            <ul>
+                <li>
+                    <label for="content">상품명 : </label>
+                    <input type="text" id="content">
+                </li>
+                <br>
+                <li>
+                    <label for="count">주문수량 : </label>
+                    <input type="text" placeholder="최소 100">
+                </li>
+                <br>
+                <li>
+                    <label for="discount">할인율 : </label>
+                    <input type="range" min="1" max="100" value="50">
+                </li>
+                <br>
+                <li>
+                    <label for="request">요청사항 : </label>
+                    <textarea rows="3"></textarea>
+                </li>
+            </ul>
+        </fieldset>
+        <br>
+
+        <button type="order">주문하기</button>
+
+    </form>
+
+</body>
+</html>

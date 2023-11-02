@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>헤더</title>
+    <style>
+        #header{
+            width: 700px;
+            height: 200px;
+            border: 3px solid red;
+            display: flex;     /* div들이 옆으로 딱붙어서 정렬 */
+            justify-content: space-evenly; /* 각 div들끼리 적절한 간격을 두고 배열된다. */
+            /*justify-content: center; */   /* justify-content, align-items 둘다 센터로 선택하면 안에 div들이 가운데 정렬된다. */
+            align-items: center;
+        }
+       #header > div {
+           width:150px;
+           height: 150px;
+           border:1px solid blue;
+           /* display: inline-block; */
+       }
+       #header > div:nth-child(2){
+            width: 300px;
+       }
+        
+    </style>
+</head>
+<body>
+    <div id="header" >
+        <div id="t01"></div>
+        <div id="t02"></div>
+        <div id="t03"></div>
+    </div>
+</body>
+</html>

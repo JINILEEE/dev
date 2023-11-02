@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버 : 회원가입</title>
+    <link rel="stylesheet" href="./과제_네이버.css">
+    <link rel="icon" href="naver_icon.svg" type="image/x-icon">
+</head>
+<body>
+    <header class="naver__header">
+        <a href="https://www.naver.com/" class="naver__header--logo">
+        </a>
+    </header>
+
+    <main class="naver__contents">
+        <div class="sign_up">
+            <div class="sign_up-group">
+                <h3 class="sign_up-id">
+                    <label for="sign_up-id">아이디</label>
+                </h3>
+                <span class="id_box">
+                    <input type="text" id="sign_up-id" required>
+                    <span class="sign_up_id-email">@naver.com</span>
+                </span>
+            </div>
+            <div class="sign_up-group">
+                <h3 class="sign_up-pwd1">
+                    <label for="sign_up-pwd1">비밀번호</label>
+                </h3>
+                <span class="pwd_box1" id="PWD">
+                    <input type="password" id="sign_up-pwd1" required>
+                    <span class="pwd_box-lock1" id="lock_1"></span>
+                </span>
+            </div>
+            <div class="sign_up-group">
+                <h3 class="sign_up-pwd2">
+                    <label for="sign_up-pwd2">비밀번호 재확인</label>
+                </h3>
+                <span class="pwd_box2" id="PWD2">
+                    <input type="password" id="sign_up-pwd2" required>
+                    <span class="pwd_box-lock2" id="lock_2"></span>
+                </span>
+            </div>
+        </div>
+
+        <div class="sign_up">
+            <div class="sign_up-group">
+                <h3 class="sign_up-name">
+                    <label for="sign_up-name">이름</label>
+                </h3>
+                <span class="name_box">
+                    <input type="text" id="sign_up-name" required>
+                </span>
+            </div>
+            <div class="sign_up-group">
+                <h3 class="sign_up-birthday">
+                    <label for="sign_up-birthday">생년월일</label>
+                </h3>
+                <span class="birth_box">
+                    <input type="text" pattern="\d*" maxlength="4" placeholder="년(4자)" id="sign_up-birthday" required>
+                    <select name="month" id="birth_month">
+                        <option value="1" class="birth_month">월</option>
+                        <option value="2" class="birth_month">1</option>
+                        <option value="3" class="birth_month">2</option>
+                        <option value="4" class="birth_month">3</option>
+                        <option value="5" class="birth_month">4</option>
+                        <option value="6" class="birth_month">5</option>
+                        <option value="7" class="birth_month">6</option>
+                        <option value="8" class="birth_month">7</option>
+                        <option value="9" class="birth_month">8</option>
+                        <option value="10" class="birth_month">9</option>
+                        <option value="11" class="birth_month">10</option>
+                        <option value="12" class="birth_month">11</option>
+                        <option value="13" class="birth_month">12</option>
+                    </select>
+                    <input type="text" pattern="\d*" maxlength="2" placeholder="일" id="sign_up-birthday" required>
+                </span>
+            </div>
+            <div class="sign_up-group">
+                <h3 class="sign_up-gender">
+                    <label for="sign_up-gender">성별</label>
+                </h3>
+                <span class="gender_box">
+                    <select name="gender" id="sign_up-gender">
+                        <option value="1">성별</option>
+                        <option value="2">남자</option>
+                        <option value="3">여자</option>
+                        <option value="4">선택 안함</option>
+                    </select>
+                </span>
+            </div>
+            <div class="sign_up-group">
+                <h3 class="sign_up-email">
+                    <label for="sign_up-email">본인 확인 이메일</label>
+                    <label for="sign_up-email">(선택)</label>
+                </h3>
+                <span class="email_box">
+                    <input type="email" id="sign_up-email" placeholder="선택입력" id="sign_up-email">
+                </span>
+            </div>
+        </div>
+
+        <div class="sign_up mobile">
+            <div class="sign_up-group">
+                <h3 class="sign_up-number">
+                    <label for="sign_up-number">휴대전화</label>
+                </h3>
+                <span class="number_box1">
+                    <select name="world" id="sign_up-number">
+                        <option value="1">대한민국 +82</option>
+                        <option value="2">덴마크 +45</option>
+                        <option value="3">멕시코 +52</option>
+                        <option value="4">영국 +44</option>
+                    </select>
+                </span>
+                <span class="number_box2">
+                    <input id="input_number" type="text" pattern="\d*" maxlength="16" placeholder="전화번호 입력" required>
+                </span>
+                <span class="number_box3">
+                    <input id="certification" type="text" pattern="\d*" maxlength="6" placeholder="인증번호 입력하세요" required>
+                </span>
+            </div>
+        </div>
+
+        <div class="sign_up_box">가입하기</div>
+    </main>
+    <footer>
+        <ul class="naver_footer1">
+            <li class="naver_footer--list1">이용약관</li>
+            <li class="naver_footer--list1">개인정보처리방침</li>
+            <li class="naver_footer--list1">책임의 한계와 법적고지</li>
+            <li class="naver_footer--list1">회원정보 고객센터</li>
+        </ul>
+        <ul class="naver_footer2">
+            <a href="https://www.navercorp.com/" target="_blank"><li class="naver_footer--list2"></li></a>
+            <li class="naver_footer--list2">Copyright</li>
+            <li class="naver_footer--list2">NAVER Corp.</li>
+            <li class="naver_footer--list2">All Rights Reserved.</li>
+        </ul>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
+</body>
+</html>
