@@ -1,0 +1,38 @@
+body{
+    background-color: rgba(165, 211, 255, 0.567);
+    margin: 0px;
+}
+form{
+    text-align: left;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    padding-left: 20px;
+    width: 500px;
+    height: 500px;
+    background-color: rgb(235, 235, 235);
+    border: 1px solid lightgray;
+}
+td:first-child{
+    width: 300px;
+}
+input{
+    text-align: right;
+    border:none;
+    border-bottom: 2px dashed black;
+    background-color: rgb(235, 235, 235);
+}
+td>#circle{
+    width: 30px;
+}
+button{
+    font-size: 30px;
+    width: 200px;
+    height: 40px;
+    background-color: rgb(198, 235, 143);
+    text-align: center;
+    border:none;
+}
+#pwdAlarm{
+    border: none;
+}

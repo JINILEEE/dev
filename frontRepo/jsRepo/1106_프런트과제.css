@@ -1,0 +1,128 @@
+/* 기본 css 제거 */
+body{
+    margin: 0px;
+}
+.header>a{
+    text-decoration: none;
+    color: black;
+}
+.wrap{
+    display: grid;
+    width: 100vw;
+    height: 2000px;
+    grid-template-rows: 1.5fr 1fr 11fr 3fr 16fr 6fr;
+}
+.header{
+    position: sticky;
+    width: 100%;
+    height: 80px;
+    top: 0px;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 6fr 3fr 2fr 1fr 3fr 1fr 7fr 5fr 2fr 6fr;
+}
+.header>div{
+    border:1px dashed bisque;
+}
+#community{
+    color:#34c5ef;
+    font-size: larger;
+}
+.header>a:hover{
+    font-size: larger;
+    color:#34c5ef;
+}
+.header>a{
+    font-size: larger;
+}
+#search{
+    width: 300px;
+    height: 35px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-size: 16px;
+    background-image:url("./돋보기.png");
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 3% center;
+}
+#right{
+    font-size: 14px;
+}
+h1{
+    text-align: left;
+    font-family:"나눔바른펜";
+}
+.menu{
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 8fr 1fr 1.7fr 1.5fr 2fr 2fr 2.6fr 2.3fr 2.3fr 2fr 2.5fr 1.5fr 3fr 2.5fr 5fr 8fr;
+}
+.menu>div{
+    border: 1px dashed lightgreen;
+}
+.photo{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr;
+    border:1px solid black;
+}
+.photo>div{
+    align-items: center;
+    border: 1px dashed blue;
+}
+.icon{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 0.8fr 3.1fr 2fr;
+    border:1px solid black;
+}
+.icon>div{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    border: 1px solid green;
+}
+.icon>#content{
+    display: grid;
+    grid-template-columns: 6fr 1.3fr 1fr 1.3fr 1fr 1.3fr 1fr 1.3fr 1fr 1.3fr 1fr 1.3fr 1fr 1.3fr 1fr 1.3fr 1fr 1.3fr 1fr 1.3fr 6fr;
+}
+.icon>#content>div{
+    border:1px solid rgb(70, 70, 180);
+    width: 100%;
+    height: 100%;
+}
+.photo-2{
+    width: 100%;
+    height: 100%;
+    border:1px solid black;
+}
+#big{
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    grid-template-rows: 1fr 20fr 1fr; 
+    
+}
+#big>div{
+    width: 100%;
+    height: 100%;
+    border: 1px dotted rgb(68, 68, 34);
+}
+#small{
+    display: grid;
+    grid-template-rows: 1fr 20fr 1fr;
+}
+#small>div{
+    width: 100%;
+    height: 100%;
+    border: 1px dotted rgb(89, 53, 53);
+}

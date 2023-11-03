@@ -30,12 +30,29 @@
 
     <script>
         function arrayTest1(){
-            const a = document.querySelector('#la1');
-            const str = a.innerText;
-            console.log(str);
+            const str1 = document.querySelector('#la1').innerText;
+            const str2 = document.querySelector('#la2').innerText;
+            const str3 = document.querySelector('#la3').innerText;
+            const str4 = document.querySelector('#la4').innerText;
+
+            const arr1 = str1.split(",");
+            const arr2 = str2.split(",");
+            const arr3 = str3.split(",");
+            const arr4 = str4.split(",");
+            
+            const arr = arr1.concat(arr2, arr3, arr4);
+
+            console.log(arr);
+
+            const inputTag = document.querySelector('#text');
+            const userStr =  inputTag.value;
+            const result = arr.indexOf(userStr);
+            if(result === -1){
+                alert("존재하지 않는 단어입니다.");
+            }else{
+                alert("입력하신 단어는 " + (result + 1) + "번 째 단어입니다.");
+            }
         }
-        
-        
     </script>
     
     <hr>
@@ -63,6 +80,20 @@
     
     <script>
         
+        // 출력문에 나오기
+        function reverseTest(){
+            const one = document.querySelector("#stringla1").innerText;
+            const two = document.querySelector("#stringla2").innerText;
+            const reversed01 = one.split(" ").reverse().join("");
+            const reversed02 = two.split(" ").reverse().join("");
+    
+            // console.log(reversed01 + reversed02);
+            const str = document.querySelector('#print');
+            
+            str.innerHTML = reversed01 + reversed02;
+        }
+
+
     </script> 
 
     <hr>
@@ -85,6 +116,17 @@
     <button onclick="print()">출력</button>
 
     <script>
+        function input(){
+            const n01 = document.querySelector('#strInput');
+            console.log(n01.value);
+            const output = document.querySelector('#print2');
+            const arr = new Array();
+            const arrFinal = 배열이름.join(', ');
+
+            // 정답출력부분에 출력되도록 (왼쪽=지정공간 / 오른쪽=변경할값)
+            output.innerHTML = arrFinal.value;
+        }
+
 
     </script>
     
@@ -114,6 +156,15 @@
    <button onclick="arrayTest3();">처리 및 출력</button>  
     
     <script>
+        function arrayTest3(){
+            const ori = document.querySelector('#stringla4').innerText;
+            const remove = document.querySelector('#remove').innerText;
+            const add = document.querySelector('#add').innerText;
+            const print = document.querySelector('#print4');
+            const result = ori.slice(remove);
+            console.log(result);
+            print.innerHTML = result.value;
+        }
         
     </script>
 </body>

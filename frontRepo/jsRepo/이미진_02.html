@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미진_02</title>
+    <link rel="stylesheet" href="./이미진_02.css">
+</head>
+<body>
+    <form>
+
+        
+        <table>
+            <tr>
+                <td>아이디</td>
+                <td><input id="id" type="text"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td id="b"></td>
+            </tr>
+            <br>
+            <tr>
+                <td>패스워드</td>
+                <td><input id="pwd" type="password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td id="a"></td>
+            </tr>
+            <br>
+            <tr>
+                <td>패스워드 확인</td>
+                <td><input id="confirmPwd" type="password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td id="c"></td>
+            </tr>
+            <br>
+            <br>
+            <tr>
+                <td>이메일</td>
+                <td><input id="email" type="text"></td>
+                <td id="circle">@</td>
+                <td><input id="email" type="text"></td>
+            </tr>
+            <br>
+            <tr>
+                <td>주소</td>
+                <td><input id="address" type="text"></td>
+                <td><input id="address" type="text"></td>
+            </tr>
+        </table>
+
+        <div><input type="text" id="inform"></div>
+        <button onclick="signUp()">가입</button>
+
+      </form>
+    
+      <script>
+        
+        const pwd = document.querySelector('#pwd');
+        const a = document.querySelector('#a');
+        const b = document.querySelector('#b');
+        const c = document.querySelector('#c');
+        pwd.addEventListener("click", function(){
+            a.innerHTML = "영문자 대/소문자 특수문자, 숫자 포함 8 ~ 32자";
+        })
+
+    
+        const id = document.querySelector('#id');
+        const confirmPwd = document.querySelector('#confirmPwd');
+        
+        id.addEventListener("blur", function(event){
+            const str = event.target.value;
+            if(str.length < 1){
+                    b.innerHTML = "필수 입력 항목 입니다";
+                }
+        })
+        id.addEventListener("blur", function(event){
+            const str = event.target.value;
+            if(str.length < 1){
+                    a.innerHTML = "필수 입력 항목 입니다";
+                }
+        })
+        id.addEventListener("blur", function(event){
+            const str = event.target.value;
+            if(str.length < 1){
+                    c.innerHTML = "필수 입력 항목 입니다";
+                }
+        })
+
+        
+        
+
+      </script>
+</body>
+</html>
