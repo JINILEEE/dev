@@ -10,16 +10,174 @@
 
     <h1>폼태그</h1>
 
+    <pre>
+        form : 데이터 제출할 때 사용
+        form 태그의 action 속성 : 데이터를 전달받을 서버측 URL
+        input : 사용자(일반유저)의 입력값을 받음
+        input 태그의 name 속성 : 입력값을 서버로 전달할 때, key값 역할을 함
+        submit : form 내의 input 태그들의 값을 제출
+    </pre>
+
     <form action="데이터를제출할주소">
-        아이디: <input type="text">
+        아이디: <input type="text" name="memberId">
         <br>
-        패스워드 : <input type="password">
+        패스워드 : <input type="password" name="memberPwd">
         <br>
         <!--  <button>로그인</button>                         버튼을 만드는 세가지 방법 -->
         <!-- <input type="button" value="로그인ㅎㅎ">   -->
         <input type="submit" value="로그인ㅋㅋ">     <!-- 이 버튼을 만들어 누르면 인풋 데이터들을 폼 액션에 작성한 주소에 저장해준다. -->
     </form>
 
+    <hr>
+
+    <h3>fieldset , legend</h3>
+
+    <pre>
+        fieldset : 폼 요소를 그룹으로 묶어줌
+        legend : 묶은 폼 요소에 이름 붙여줌
+    </pre>
+
+    <form>
+
+        <fieldset>
+            <legend>회원정보</legend>
+            아이디 : <input type="text" name="memberId">
+            <br>
+            패스워드 : <input type="password" name="memberPwd">
+        </fieldset>
+
+        <fieldset>
+            <legend>배송정보</legend>
+            수령인 : <input type="text" name="recvName">
+            <br>
+            주소 : <input type="text" name="addr">
+        </fieldset>
+
+        <input type="submit" value="제출ㅋㅋ">
+
+    </form>
+
+    <hr><hr><hr>
+
+    <h3>텍스트 관련</h3>
+
+    <form>
+        <input 
+            type="text" 
+            placeholder="아이디를 입력하세요" 
+            value="hello" 
+            name="memberId" 
+            size="30"
+            maxlength="5"
+            required
+            >
+
+        <br>
+        <input type="password" placeholder="비밀번호를 입력하세요">
+        <br>
+
+        <input type="search">
+        <br>
+        <input type="url">
+        <br>
+        <input type="email">
+        <br>
+        <input type="tel">
+        <br>
+
+        <input type="submit" value="제출ㅋㅋ">
+        <input type="reset" value="리셋ㅎㅎ">
+    </form>
+
+    <br><br><br>
+    <hr>
+    <br><br><br>
+
+    <h3>숫자 관련</h3>
+
+    <form>
+        <input type="number" min="0" max="15" step="3">  <!-- spin box 존재 -->
+        <br>
+        <input type="range" min="0" max="100" step="20" value="30">
+
+        <br>
+        <input type="submit" value="제출!!!">
+    </form>
+
+    <br><br><br>
+    <hr>
+    <br><br><br>
+
+    <h3>날짜/시간 관련</h3>
+
+    <input type="date" value="2024-02-01">
+    <br>
+    <input type="time">
+    <br>
+    <input type="datetime-local">
+
+    <br><br><br>
+    <hr>
+    <br><br><br>
+
+    <h3>라디오 버튼, 체크박스</h3>
+
+    <pre>
+        라디오 : 여러개 중 하나 / 반드시 value값과 name값이 있어야만 한다!!! 
+               name값이 다르면 같은 선택지가 아니라 생각해 다 선택 가능하다...
+
+        체크박스 : 다중선택
+    </pre>
+
+    <form action="helloworld"> 
+        남자<input type="radio" value="m" name="gender">
+        여자<input type="radio" value="w" name="gender">
+        <br>
+
+        코딩<input type="checkbox" name="hobby" value="coding">
+        개발<input type="checkbox" name="hobby" value="dev">
+        프로그래밍<input type="checkbox" name="hobby" value="programming">
+        <br>
+
+        <input type="submit" value="제출ㅋㅋ">
+    </form>
+
+    <br><br><br>
+    <hr>
+    <br><br><br>
+
+    <h3>기타</h3>
+
+    <form action="액션속성의값">
+
+        <input type="color">
+        <br>
+        <input type="file">
+        <br>
+        <input type="hidden">
+        <br>
+
+        <select name="national">
+            <option value="ko">한국</option>
+            <option value="ch">중국</option>
+            <option value="jp">일본</option>
+        </select>
+        <br>
+
+        <textarea 
+            name="content" 
+            placeholder="내용을 입력하세요" 
+            rows="30" 
+            cols="50" 
+            style="resize: none;"
+        >
+        ㅎㅎㅎㅎㅎ
+        </textarea>
+
+        <br>
+
+        <input type="submit" value="제출~">
+    </form>
 
 </body>
 

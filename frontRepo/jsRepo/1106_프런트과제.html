@@ -16,73 +16,234 @@
             <a href="https://ohou.se/store"><b>쇼핑</b></a>
             <a href="https://ohou.se/experts"><b>이사/시공/생활</b></a>
             <div></div>
-            <div><input type="text" id="search" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;통합검색"></div>
+            <div><input type="text" id="search" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;통합검색" dir="rtl"></div>
+            <div id="basket"><input type="image" src="./장바구니.png" alt="장바구니" style="height: 30px; width: 30px;"></div>
             <div id="right">로그인 | 회원가입 | 고객센터</div>
-            <div><button>글쓰기</button></div>
-            <img src="" alt="">
+            <div><button id="write" onclick="write();">✎ 글쓰기</button></div>
             <div></div>
         </div>
         <div class="menu">
             <div></div>
-            <div>홈</div>
-            <div>추천</div>
-            <div>#채널</div>
-            <div>집들이</div>
-            <div>집사진</div>
-            <div>3D인테리어</div>
-            <div>살림수납</div>
-            <div>콜렉터블</div>
-            <div>홈스토랑</div>
-            <div>핫플레이스</div>
-            <div>육아</div>
-            <div>플랜테리어</div>
-            <div>반려동물</div>
-            <div>상자 넣을것</div>
+            <div class="menuSmall"><b>홈</b></div>
+            <div class="menuSmall"><b>추천</b></div>
+            <div class="menuSmall"><b>#채널</b></div>
+            <div class="menuSmall"><b>집들이</b></div>
+            <div class="menuSmall"><b>집사진</b></div>
+            <div class="menuSmall"><b>3D인테리어</b></div>
+            <div class="menuSmall"><b>살림수납</b></div>
+            <div class="menuSmall"><b>콜렉터블</b></div>
+            <div class="menuSmall"><b>홈스토랑</b></div>
+            <div class="menuSmall"><b>핫플레이스</b></div>
+            <div class="menuSmall"><b>육아</b></div>
+            <div class="menuSmall"><b>플랜테리어</b></div>
+            <div class="menuSmall"><b>반려동물</b></div>
+            <div id="popular">
+                <p><b>🔺 인기 검색어</b></p>
+                <!-- <p id="popularImage" style="width: 271px; height: 480px;"><input type="image" src="./인기검색어.png" alt="인기검색어"></p> -->
+            </div>
             <div></div>
         </div>
         <div class="photo">
             <div></div>
-            <div id="big">
-                <div>빈공간</div>
-                <div>빈공간</div>
-                <div>큰사진</div>
-                <div>빈공간</div>
-                <div>빈공간</div>
+            <div class="big" >
+                <div></div>
+                <div></div>
+                <div id="slide" >
+                    <img src="./집사진1.png" alt="집사진1">
+                </div>
+                <div></div>
+                <div></div>
             </div>
-            <div id="small">
-                <div>빈공간</div>
-                <div>작은 사진</div>
-                <div>빈공간</div>
+            <div class="small">
+                <div></div>
+                <div id="slide"><img src="./크리스마스기획전.png" alt="크리스마스기획전"></div>
+                <div></div>
             </div>
         </div>
         <div class="icon">
-            <div>빈공간</div>
+            <div></div>
             <div id="content">
-                <div>1</div>
-                <div>쇼핑하기</div>
-                <div>2</div>
-                <div>오!세일</div>
-                <div>3</div>
-                <div>오늘의딜</div>
-                <div>4</div>
-                <div>추천콘텐츠</div>
-                <div>5</div>
-                <div>장보기</div>
-                <div>6</div>
-                <div>집들이</div>
-                <div>7</div>
-                <div>수납꿀팁</div>
-                <div>8</div>
-                <div>빠른배송</div>
-                <div>9</div>
-                <div>리모델링</div>
-                <div>10</div>
-                <div>빠른이사</div>
-                <div>11</div>
+                <div></div>
+                <div>
+                    <img src="./아이콘1.png" alt="쇼핑하기">
+                    쇼핑하기
+                </div>
+                <div></div>
+                <div>
+                    <img src="./아이콘2.png" alt="오!세일">
+                    &nbsp;오!세일
+                </div>
+                <div></div>
+                <div>
+                    <img src="./아이콘3.png" alt="오늘의딜">
+                    오늘의딜
+                </div>
+                <div></div>
+                <div style="font-size: 15px;">
+                    <img src="./아이콘4.png" alt="추천콘텐츠">
+                    추천콘텐츠
+                </div>
+                <div></div>
+                <div>
+                    <img src="./아이콘5.png" alt="장보기">
+                    &nbsp;&nbsp;장보기
+                </div>
+                <div></div>
+                <div>
+                    <img src="./아이콘6.png" alt="집들이">
+                    &nbsp;&nbsp;집들이
+                </div>
+                <div></div>
+                <div>
+                    <img src="./아이콘7.png" alt="수납꿀팁">
+                    수납꿀팁
+                </div>
+                <div></div>
+                <div>
+                    <img src="./아이콘8.png" alt="빠른배송">
+                    빠른배송
+                </div>
+                <div></div>
+                <div>
+                    <img src="./아이콘9.png" alt="리모델링">
+                    리모델링
+                </div>
+                <div></div>
+                <div>
+                    <img src="./아이콘10.png" alt="쉬운이사">
+                    쉬운이사
+                </div>
+                <div></div>
             </div>
-            <div> 빈공간 </div>
+            <div> </div>
         </div>
-        <div class="photo-2"></div>
+        <div class="photo-2">
+            <div></div>
+            <div id="menu2">
+                <div id="todayDeal">
+                    <div id="tdtitle"><b>오늘의딜</b></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div id="more"><b>더보기</b></div>
+                    <div id="todayDealContent">
+                        <img src="./오늘의딜1.png" alt="오늘의딜1">
+                    </div>
+                    <div></div>
+                    <div id="todayDealContent">
+                        <img src="./오늘의딜2.png" alt="오늘의딜2">
+                    </div>
+                    <div></div>
+                    <div id="todayDealContent">
+                        <img src="./오늘의딜3.png" alt="오늘의딜3">
+                    </div>
+                    <div></div>
+                    <div id="todayDealContent">
+                        <img src="./오늘의딜4.png" alt="오늘의딜4">
+                    </div>
+                    <div id="description">
+                        <span id="brand">마리슈타이거</span>
+                        <br>
+                        <span id="detail">[쿠폰가 59,800원] 인테리어가 되는 루미 자동센서 휴지통 20L (4colors)</span>
+                        <br>
+                        <span id="percent"><b>26%</b></span> <span id="price"><b>79,000</b></span>
+                        <br>
+                        <span id="star">★</span> <span id="grade"><b>4.7</b></span> <span id="review"><b>리뷰 1,629</b></span>
+                        <br>
+                        <button id="free"><b>무료배송</b></button>
+                        <button id="specialPrice"><b>특가</b></button>
+                    </div>
+                    <div></div>
+                    <div id="description">
+                        <span id="brand">베이직톤</span>
+                        <br>
+                        <span id="detail">[단하룩!/10%쿠폰] 베이직톤 브랜드데이 BEST 차렵이불세트 패드 모음전</span>
+                        <br>
+                        <span id="percent"><b>34%</b></span> <span id="price"><b>64,900 외</b></span>
+                        <br>
+                        <span id="star">★</span> <span id="grade"><b>4.8</b></span> <span id="review"><b>리뷰 31,456</b></span>
+                        <br>
+                        <button id="specialPrice"><b>특가</b></button>
+                    </div>
+                    <div></div>
+                    <div id="description">
+                        <span id="brand">소프트터치</span>
+                        <br>
+                        <span id="detail">[단독] 순면 100% 모먼트 180g 무형관 자수 호텔수건 10매 6colors</span>
+                        <br>
+                        <span id="percent"><b>37%</b></span> <span id="price"><b>28,900</b></span>
+                        <br>
+                        <span id="star">★</span> <span id="grade"><b>4.8</b></span> <span id="review"><b>리뷰 1,427</b></span>
+                        <br>
+                        <button id="free"><b>무료배송</b></button>
+                        <button id="specialPrice"><b>특가</b></button>
+                    </div>
+                    <div></div>
+                    <div id="description">
+                        <span id="brand">일월</span>
+                        <br>
+                        <span id="detail">[전기요BEST] 일월 best 전기요 탄소매트 카본매트 모음전!</span>
+                        <br>
+                        <span id="percent"><b>83%</b></span> <span id="price"><b>49,800 외</b></span>
+                        <br>
+                        <span id="star">★</span> <span id="grade"><b>4.7</b></span> <span id="review"><b>리뷰 392</b></span>
+                        <br>
+                        <button id="free"><b>무료배송</b></button>
+                        <button id="specialPrice"><b>특가</b></button>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+        </div>
+        <div class="customer">
+            <div></div>
+            <div id="customerLetter">
+                <div></div>
+                <div style="border-right: 2px solid #ebedef;">
+                    <span id="contact"><b>고객센터</b> > </span>
+                    <br>
+                    <br>
+                    <span><b>1670-0876 &nbsp;</b></span><span>9:00 ~ 18:00</span>
+                    <br>
+                    <br>
+                    <span id="moreDetail">평일: 전체 문의 상담 가능</span>
+                    <br>
+                    <span id="moreDetail">주말, 공휴일: 오늘의집 직접배송, 이사/시공/제품설치 </span>
+                    <br>
+                    <span id="moreDetail">문의 상담 가능</span>
+                </div>
+                <div  style="border-right: 2px solid #ebedef; padding-left: 15px;">
+                    <div>
+                        <pre>회사소개             입점신청</pre>
+                    </div>
+                    <div>
+                        <pre>채용정보             광고/제휴문의</pre>
+                    </div>
+                    <div>
+                        <pre>이용약관             사업자 구매 회원</pre>
+                    </div>
+                    <div>
+                        <pre><b>개인정보 처리방침</b>      시공파트너 안내</pre>
+                    </div>
+                    <div>
+                        <pre>공지사항             상품광고 소개</pre>
+                    </div> 
+                    <div>
+                        <pre>안전거래센터          고객의 소리</pre>
+                    </div>
+                </div>
+                <div style="padding-left: 15px;">
+                    <pre>(주)버킷플레이스|대표이사 이승재|서울 서초구 서초대로74길 4 삼성생명서초타워 25층, 27층</pre>
+                    <pre>contact@bucketplace.net|사업자등록번호 119-86-91245 사업자정보확인</pre>
+                    <pre>통신판매업신고번호 제2018-서울서초-0580호</pre>
+                    
+                </div>
+                <div></div>
+            </div>
+            <div></div>
+        </div>
     </div>    
 </body>
 </html>
