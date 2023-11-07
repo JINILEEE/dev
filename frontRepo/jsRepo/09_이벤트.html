@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <script src="./09_이벤트.js"></script>
+</head>
+<body>
+    
+    <h1>이벤트</h1>
+
+    <pre>
+        * 고전 이벤트 모델 : window.onload = () => {} / 특정 함수에 이벤트 넣어주는것, 여러개를 넣어주면 마지막거가 덮어쓰므로 사용이 불편하다.
+        * 인라인 이벤트 모델 : 버튼안에 onclick 작성해서 이벤트 넣어주는것, 여러개를 넣어주면 마지막거가 덮어쓰므로 사용이 불편하다.
+        * 표준 이벤트 모델 : 버튼아이디.onclick = 함수; / 이렇게 작성해 클릭시 함수 작용하는 것, 이렇게 사용하는 것을 권장!!
+
+        기본 이벤트 제거
+    </pre>
+
+    <button id="btn01">버튼01 (고전)</button>
+    <button id="btn02" onclick="f02();">버튼02 (인라인)</button>
+    <button id="btn03">버튼03 (표준)</button>
+
+    <br><br><br>
+    <hr>
+    <br><br><br>
+
+    <a href="http://www.naver.com" onclick="return false;">네이버 이동</a>
+
+    <br><br><br>
+    <hr>
+    <br><br><br>
+
+    <form action="join" onsubmit="return f05();">
+
+        아이디 : <input type="text" name="memberId">
+        <br>
+        비밀번호 : <input type="password" name="memberPwd">
+        <br>
+        비밀번호 확인 : <input type="password" name="memberPwd2">
+        <br>
+        닉네임 : <input type="text" name="memberNick">
+        <br>
+        <input type="submit" value="회원가입">
+
+    </form>
+
+
+
+</body>
+</html>
