@@ -1,0 +1,42 @@
+/* [복습 1]
+body{
+    margin:0px;
+}
+h1{
+    margin:0px;
+    font-weight: normal;  /* normal 면 글씨 굵기가 평범한 굵기를 가지게 된다. 
+.red{
+    background-color: red;
+} 
+*/
+
+/* ////////////////////////////////////////////////////////////////////// */
+
+/* [문제2] 클릭할때마다 div 가 빨간색 -> 원래색 -> 빨간색 -> ... 으로 변경이 되는것 & 1 초마다 변경되는 것 */
+
+/* .box{
+    width: 100px;
+    height: 100px;
+    border: 3px solid black;
+}
+
+.red{
+    background-color: red;
+} */
+
+
+aside.aside-left{
+    width: 200px;
+    height: 100vh;                   
+    background-color: lightgray;
+    border: 3px solid black;
+    box-sizing: border-box;             /* 이 처리를 해줘야 height가 100vh 제대로 나온다.(border가 존재해서 사이즈가 넘쳐 스크롤 생기지 않도록)*/
+    margin-left: -150px;
+    transition: 0.5s;                   /* 변경사항이 0.5초에 걸쳐서 부드럽게 동작 */
+}
+aside.aside-left.active{
+    margin-left: 0px;
+}
+aside.aside-left > button{
+    width: 100%;
+}
