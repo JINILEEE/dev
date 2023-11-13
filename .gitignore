@@ -3,3 +3,16 @@ data.txt
 hello.txt
 practice.txt
 lib/
+javaWorkspace/.metadata/
+jdbcWorkspace/.metadata/
+*.classpath
+*.project
+** /settings/
+**/bin/
+setup/
+javaWorkspace/javaPrj/.settings/
+jdbcWorkspace/jdbcPrj/.settings/
+javaWorkspace/.gitignore
+jdbcWorkspace/.gitignore
+javaWorkspace/javaPrj/.gitignore
+jdbcWorkspace/jdbcPrj/.gitignore
