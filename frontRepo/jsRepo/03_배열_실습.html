@@ -116,15 +116,22 @@
     <button onclick="print()">출력</button>
 
     <script>
-        function input(){
-            const n01 = document.querySelector('#strInput');
-            console.log(n01.value);
-            const output = document.querySelector('#print2');
-            const arr = new Array();
-            const arrFinal = 배열이름.join(', ');
+        const arr = [];        // 정답 영역에 출력할 비어있는 배열 준비
 
+        function input(){
+            const n01 = document.querySelector('#strInput');  //strInput 이라는 선택자를 가져와서 변수 n01에 담아준다.
+            arr.push(n01.value);        // 입력받은 내용을 배열에 넣어줌
+            n01.value = "";             // 기존 입력 비우기
             // 정답출력부분에 출력되도록 (왼쪽=지정공간 / 오른쪽=변경할값)
-            output.innerHTML = arrFinal.value;
+        }
+
+        function print(){
+            const output = document.querySelector('#print2');
+
+            arr.sort().reverse();         // 오름차순 정렬 후, reverse로 내림차순 정렬같이 만들어줌.
+            
+            const arrFinal = arr.join(",");      // 배열의 요소의 중간중간 콤마를 추가하여 하나의 문자열로 만듦(innerHTML 속성을 사용)
+            output.innerHTML = arrFinal;
         }
 
 

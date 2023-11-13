@@ -18,54 +18,54 @@ public class MemberService {
 		dao = new MemberDao();
 	}
 	
-	public int join(MemberVo vo) throws Exception {
-		
-		//conn 
-		Connection conn = JDBCTemplate.getConnection();
-		
-		//DAO
-		int result = dao.join(conn, vo);
-		
-		//tx
-		if(result == 1) {
-			JDBCTemplate.commit(conn);
-		}else {
-			JDBCTemplate.rollback(conn);
-		}
-		
-		//close
-		JDBCTemplate.close(conn);
-		return result;
-	}//join end
-	
-	public MemberVo login(MemberVo vo) throws Exception{
-		
-		//conn
-		Connection conn = JDBCTemplate.getConnection();
-		
-		//DAO
-		MemberVo dbVo = dao.login(conn, vo);
-		
-		//result
-		
-		//close
-		JDBCTemplate.close(conn);
-		return dbVo;
-	}//login end
-	
-	public ArrayList<MemberVo> getMemberList() throws Exception{
-		
-		//conn
-		Connection conn = JDBCTemplate.getConnection();
-		
-		//DAO
-		ArrayList<MemberVo> voList = dao.getMemberList(conn);
+//	public int join(MemberVo vo) throws Exception {
+//		
+//		//conn 
+//		Connection conn = JDBCTemplate.getConnection();
+//		
+//		//DAO
+//		int result = dao.join(conn, vo);
 		
 		//tx
-		
-		//close
-		JDBCTemplate.close(conn);
-		return voList;
-	}
+//		if(result == 1) {
+//			JDBCTemplate.commit(conn);
+//		}else {
+//			JDBCTemplate.rollback(conn);
+//		}
+//		
+//		//close
+//		JDBCTemplate.close(conn);
+//		return result;
+//	}//join end
+	
+//	public MemberVo login(MemberVo vo) throws Exception{
+//		
+//		//conn
+//		Connection conn = JDBCTemplate.getConnection();
+//		
+//		//DAO
+//		MemberVo dbVo = dao.login(conn, vo);
+//		
+//		//result
+//		
+//		//close
+//		JDBCTemplate.close(conn);
+//		return dbVo;
+//	}//login end
+	
+//	public ArrayList<MemberVo> getMemberList() throws Exception{
+//		
+//		//conn
+//		Connection conn = JDBCTemplate.getConnection();
+//		
+//		//DAO
+//		ArrayList<MemberVo> voList = dao.getMemberList(conn);
+//		
+//		//tx
+//		
+//		//close
+//		JDBCTemplate.close(conn);
+//		return voList;
+//	}
 
 }
