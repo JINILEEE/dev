@@ -1,0 +1,10 @@
+main{
+
+    font-size: 24px;
+
+    display: grid;
+    grid-template-rows: 100px 400px 50px 100px;
+    grid-template-columns: 1fr;
+
+    place-items: center center;
+}
