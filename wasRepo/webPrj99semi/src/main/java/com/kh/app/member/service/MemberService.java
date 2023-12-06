@@ -59,4 +59,21 @@ public class MemberService {
 		
 	}
 
+	public boolean checkIdDup(String memberId) throws Exception{
+
+		//conn
+		Connection conn = JDBCTemplate.getConnection();
+		
+		//dao
+		MemberDao dao = new MemberDao();
+		boolean result = dao.checkIdDup(conn, memberId);
+		
+		//tx
+		
+		//close
+		JDBCTemplate.close(conn);
+		return result;
+		
+	}
+
 }//class

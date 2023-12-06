@@ -25,9 +25,9 @@ public class MemberController {
 		String n = sc.nextLine();
 		
 		switch(n) {
-		case "1" : join();break;
-		case "2" : login();break;
-		case "3" : printMemberList();break;
+//		case "1" : join();break;
+//		case "2" : login();break;
+//		case "3" : printMemberList();break;
 		default : System.out.println("그런 메뉴 없음");
 		}
 	}

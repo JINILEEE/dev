@@ -1,0 +1,34 @@
+-- 게시글 검색 (제목)
+SELECT *
+FROM BOARD
+JOIN 
+WHERE STATUS = 'O'
+AND TITLE LIKE '%공부%'
+ORDER BY NO DESC
+;
+
+-- 게시글 검색 (내용)
+SELECT *
+FROM BOARD
+WHERE STATUS = 'O'
+AND CONTENT LIKE '%!!%'
+ORDER BY NO DESC
+;
+
+SELECT * FROM 
+( SELECT ROWNUM RNUM, T.* 
+    FROM 
+        ( SELECT B.NO 
+        ,B.CATEGORY_NO 
+        ,B.TITLE 
+        ,B.CONTENT 
+        ,B.WRITER_NO 
+        ,B.HIT 
+        ,B.ENROLL_DATE 
+        ,B.MODIFY_DATE 
+        ,B.STATUS 
+        ,M.NICK AS WRITER_NICK 
+        ,C.NAME AS CATEGORY_NAME 
+        FROM BOARD B 
+        JOIN MEMBER M ON B.WRITER_NO = M.NO 
+        JOIN CATEGORY C ON B.CATEGORY_NO = C.NO WHERE B.STATUS = 'O' ORDER BY B.NO DESC ) T ) WHERE RNUM BETWEEN ? AND ?

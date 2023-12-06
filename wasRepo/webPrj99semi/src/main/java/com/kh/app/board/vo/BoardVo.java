@@ -12,6 +12,7 @@ public class BoardVo {
 	private String enrollDate;
 	private String modifyDate;
 	private String status;
+	private String categoryName;
 	
 	public BoardVo() {
 		super();
@@ -19,7 +20,7 @@ public class BoardVo {
 	}
 
 	public BoardVo(String no, String categoryNo, String title, String content, String writerNo, String writerNick,
-			String hit, String enrollDate, String modifyDate, String status) {
+			String hit, String enrollDate, String modifyDate, String status, String categoryName) {
 		super();
 		this.no = no;
 		this.categoryNo = categoryNo;
@@ -31,6 +32,15 @@ public class BoardVo {
 		this.enrollDate = enrollDate;
 		this.modifyDate = modifyDate;
 		this.status = status;
+		this.categoryName = categoryName;
+	}
+
+	@Override
+	public String toString() {
+		return "BoardVo [no=" + no + ", categoryNo=" + categoryNo + ", title=" + title + ", content=" + content
+				+ ", writerNo=" + writerNo + ", writerNick=" + writerNick + ", hit=" + hit + ", enrollDate="
+				+ enrollDate + ", modifyDate=" + modifyDate + ", status=" + status + ", categoryName=" + categoryName
+				+ "]";
 	}
 
 	public String getNo() {
@@ -113,11 +123,12 @@ public class BoardVo {
 		this.status = status;
 	}
 
-	@Override
-	public String toString() {
-		return "BoardVo [no=" + no + ", categoryNo=" + categoryNo + ", title=" + title + ", content=" + content
-				+ ", writerNo=" + writerNo + ", writerNick=" + writerNick + ", hit=" + hit + ", enrollDate="
-				+ enrollDate + ", modifyDate=" + modifyDate + ", status=" + status + "]";
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
 	
 	

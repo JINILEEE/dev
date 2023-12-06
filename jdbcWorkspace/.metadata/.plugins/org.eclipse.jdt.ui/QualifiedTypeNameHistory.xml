@@ -15,7 +15,6 @@
     <fullyQualifiedTypeName name="com.kh.app.db.JDBCTemplate"/>
     <fullyQualifiedTypeName name="com.kh.app.member.controller.MemberController"/>
     <fullyQualifiedTypeName name="com.prj.app.member.controller.MemberController"/>
-    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="com.prj.app.member.service.MemberService"/>
     <fullyQualifiedTypeName name="com.prj.app.member.vo.MemberVo"/>
@@ -31,16 +30,17 @@
     <fullyQualifiedTypeName name="com.kh.mini.member.vo.MemberVo"/>
     <fullyQualifiedTypeName name="com.kh.mini.main.Main"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.kh.miniPractice.member.controller.MemberController"/>
     <fullyQualifiedTypeName name="com.kh.miniPractice.board.controller.BoardController"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="com.kh.miniPractice.main.Main"/>
     <fullyQualifiedTypeName name="com.kh.miniPractice.member.service.MemberService"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="com.kh.miniPractice.member.vo.MemberVo"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="com.kh.jdbc.JDBCTemplate"/>
     <fullyQualifiedTypeName name="com.kh.miniPractice.member.dao.MemberDao"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 </qualifiedTypeNameHistroy>

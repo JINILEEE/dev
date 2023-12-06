@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .done{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>오늘 할 일</h1>
+
+    <input id="target" type="text" placeholder="할일을 입력하세요.">
+    <button onclick="addTodo();">등록</button>
+
+    <br><br><br>
+
+    <div id="result">
+
+    </div>
+
+    <script>
+
+        function getSeqNo() {
+            let no = localStorage.getItem("seqNo");
+            // 넘버가 null일때를 대비
+            if(!no){
+                no = 1;
+            }  
+            no = parseInt(no);          // 문자열을 숫자로 변경되도록
+            localStorage.setItem("seqNo", no+1);       //숫자 하나씩 증가하도록
+            return no;
+        }
+
+        function addTodo(){
+            
+            const todoArr = getTodoArr();
+            const target = document.querySelector("#target");
+            
+            const todoObj = {
+                no : getSeqNo(),
+                title : target.value,
+                done : false,
+            };
+            todoArr.push(todoObj);  //신규로 들어온 todoObj를 todoArr에 담아준다. (기존 배열 데이터 유지하면서)
+            localStorage.setItem("todoList", JSON.stringify(todoArr));  //크롬의 로컬스토리지에 k-v입력값을 담아줌
+            paintView(); //아래 만들어둔 div에 있는 내용들을 result에 담은 함수를 실행해주기 위해 작성.
+        }
+
+        function paintView(){
+            
+            //기존 내용 지우기
+            const result = document.querySelector("#result");
+            result.innerHTML = "";   // 빈 문자열로 만들어서 기존내용을 지우는 방법. 새로 입력한 것만 추가해주고 싶으니까
+
+            const todoArr = getTodoArr();
+
+            for(let i = 0; i < todoArr.length; ++i){
+                const todoObj = todoArr[i]
+
+                //div와 그 div 안에있는 요소들을 넣어주는 것. -> 마지막엔 result에 넣어주기.
+                const divTag = document.createElement("div");
+                const h3Tag = document.createElement("h3");
+                if(todoObj.done){
+                    h3Tag.classList.add("done");
+                }
+                const btnTag = document.createElement("button");
+                const btnTag2 = document.createElement("button");
+                const hrTag = document.createElement("hr");
+                
+                h3Tag.innerHTML = todoObj.title; //h3Tag에 todoObj.title 내용을 추가해 넣어준것
+                divTag.appendChild(h3Tag); //div 안에 h3Tag를 넣어줌.
+                btnTag.innerHTML = "완료"; //button 태그 안에 있는 글자를 다시 넣어주는 행동.
+                btnTag.addEventListener("click", ()=>{
+                    toggleDone(todoObj.no);
+                });
+                divTag.appendChild(btnTag); //위에 만든 버튼을 div에 넣어주는 것.
+                btnTag2.innerHTML = "삭제"; 
+                btnTag2.addEventListener('click', ()=>{
+                    removeTodo(todoObj.no)
+                });
+                divTag.appendChild(btnTag2); 
+
+                result.appendChild(divTag); //최종으로 완성된 div를 result라는 id를 가진 div에 담아주는 것.
+                result.appendChild(hrTag);
+            }
+
+            
+        }
+
+        function getTodoArr() {
+
+            //데이터(문자열) 읽어와서 객체배열로 만들기
+            let todoListStr = localStorage.getItem("todoList"); // 기존에 담긴 todoList 데이터(배열이 하나라도 들어가 있어야한다.)
+            if(!todoListStr){                      //todoListStr 자체가 false 값이다.
+                todoListStr = "[]";
+            }
+            const todoArr = JSON.parse(todoListStr);
+            return todoArr;
+
+        }
+
+        function removeTodo(no) {
+            
+            //객체 배열 가져오기
+            const todoArr = getTodoArr();
+
+            //특정 요소(객체) 삭제
+            for(let i = 0; i < todoArr.length; ++i){
+                const todoObj = todoArr[i];
+                if(todoObj.no === no){
+                    todoArr.splice(i,1);    // i 번째 요소부터 1개를 삭제한다는 의미
+                    break;
+                }
+            }
+
+            //로컬 스토리지 최신화
+            localStorage.setItem("todoList", JSON.stringify(todoArr));  // 삭제한것도 반영이 되도록 todoArr 는 jason으로 변경해야한다.
+
+            //화면 다시 그리기
+            paintView();
+        }
+
+        function toggleDone(no){
+            const todoArr = getTodoArr();
+
+             // 특정 요소(객체) 수정
+             for(let i = 0; i < todoArr.length; ++i){
+                const todoObj = todoArr[i];
+                if(todoObj.no === no){
+                    todoObj.done = true;
+                    break;
+                }
+            }
+
+            // 로컬 스토리지 최신화
+            localStorage. setItem("todoList" , JSON.stringify(todoArr));
+
+            // 화면 다시 그리기
+            paintView();
+        }
+        
+        //처음에 화면 그려주기
+        paintView();  //새로고침해도 빈화면이 아니라 넣어준 값이 나타난 화면이 잘 보이게
+
+    </script>
+
+</body>
+</html>

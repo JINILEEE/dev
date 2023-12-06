@@ -1,16 +1,7 @@
-INDEX VERSION 1.134+D:\dev\jdbcWorkspace\.metadata\.plugins\org.eclipse.jdt.core
-2943213937.index
-516916848.index
-4267875778.index
-3841131946.index
-3355024566.index
-936671180.index
-2482255164.index
+INDEX VERSION 1.134+/Users/mj/dev/jdbcWorkspace/.metadata/.plugins/org.eclipse.jdt.core
+1375964667.index
+2496898268.index
+986718650.index
+2089348824.index
+3889619502.index
 1865797976.index
-1931598882.index
-2314319505.index
-2113557520.index
-1652400951.index
-4128343595.index
-2540479045.index
-1118659892.index

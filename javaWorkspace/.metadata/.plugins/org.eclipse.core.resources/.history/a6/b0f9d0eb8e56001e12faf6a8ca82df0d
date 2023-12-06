@@ -1,9 +1,0 @@
-package member;
-
-public class MemberData {
-
-	private String id;
-	private String pwd;
-	private String nick;
-	
-}

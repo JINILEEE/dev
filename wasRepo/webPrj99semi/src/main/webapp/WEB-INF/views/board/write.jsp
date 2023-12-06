@@ -1,5 +1,10 @@
+<%@page import="com.kh.app.board.vo.CategoryVo"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	List<CategoryVo> categoryVoList = (List<CategoryVo>)request.getAttribute("categoryVoList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,10 +23,9 @@
 			<h1>게시글 작성</h1>
 				카테고리
 				<select name="category">
-					<option value="1">자유</option>
-					<option value="2">게임</option>
-					<option value="3">요리</option>
-					<option value="4">운동</option>
+					<% for(CategoryVo categoryVo : categoryVoList){ %>
+					<option value="<%= categoryVo.getNo() %>"><%= categoryVo.getName() %></option>
+					<% } %>
 				</select>
 
 				제목

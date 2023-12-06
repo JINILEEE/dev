@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>프로미스</h1>
+
+    <script>
+
+        function fetch() {
+            return new Promise();
+        }
+
+
+        new Promise( (resolve, reject) => {
+            console.log("할일");
+
+            //resolve();         // 작업성공으로 작업상태 변경
+            reject();          //작업실패로 작업상태 변경
+
+        } )
+        .then(() => {
+            console.log("hello ~~~");
+        })
+        .catch(() => {
+            console.log("bye !!!");
+        })
+        ;
+
+        const str = "홍길동";
+        const age = 20;
+        console.log(`저는 ${str} 이고 ${age} 살 입니다.`);
+
+
+    </script>
+</body>
+</html>

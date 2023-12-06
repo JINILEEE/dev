@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>부모창 -> 자식창 값 보내기</h1>
+
+    <input type="text" name="nick">
+    <button onclick="openPopup();">닉네임 중복 검사</button>
+
+    <script>
+        function openPopup(){
+            const childWindow = window.open('/15_팝업창2_자식.html');
+            const inputTag = document.querySelector('input[name=nick]');
+
+            
+            setTimeout(() => {
+                const childInputTag = childWindow.document.querySelector('input[name=nick]');
+                childInputTag.value = inputTag.value;
+            } , 1000);
+
+        }
+    </script>
+
+</body>
+</html>

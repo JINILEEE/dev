@@ -1,6 +1,7 @@
 package com.kh.app.board.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.kh.app.board.service.BoardService;
 import com.kh.app.board.vo.BoardVo;
+import com.kh.app.board.vo.CategoryVo;
 import com.kh.app.member.vo.MemberVo;
 
 @WebServlet("/board/write")
@@ -19,8 +21,26 @@ public class BoardWriteController extends HttpServlet{
 	// 게시글 작성 화면
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/views/board/write.jsp").forward(req, resp);
-	
+		
+		try {
+			//로그인 안되어있으면 에러페이지로 보내기
+			MemberVo loginMember = (MemberVo)req.getSession().getAttribute("loginMember");
+			if(loginMember == null) {
+				req.setAttribute("errorMsg", "잘못된 근입니다.(로그인 하고 오세요!)");
+				req.getRequestDispatcher("/WEB-INF/views/common/error.jsp").forward(req, resp);
+			}
+			
+			BoardService bs = new BoardService();
+			List<CategoryVo> categoryVoList = bs.getCategoryList();
+			req.setAttribute("categoryVoList", categoryVoList);
+			req.getRequestDispatcher("/WEB-INF/views/board/write.jsp").forward(req, resp);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			req.setAttribute("errorMsg", "게시글 작성하기 (화면) 에러 ...");
+			req.getRequestDispatcher("/WEB-INF/views/common/error.jsp").forward(req, resp);
+		}
+		
 	}
 	
 	//게시글 작성 로직

@@ -21,30 +21,37 @@
 						<tr>
 							<td>* 아이디 : </td>
 							<td><input type="text" name="memberId"></td>
+							<td><input type="button" value="중복체크" onclick="checkIdDup()"></td>
 						</tr>
 						<tr>
 							<td>* 비밀번호 : </td>
 							<td><input type="password" name="memberPwd"></td>
+							<td></td>
 						</tr>
 						<tr>
 							<td>* 비밀번호 확인 : </td>
 							<td><input type="password" name="memberPwd2"></td>
+							<td></td>
 						</tr>
 						<tr>
 							<td>* 닉네임 : </td>
 							<td><input type="text" name="memberNick"></td>
+							<td></td>
 						</tr>
 						<tr>
 							<td>전화번호 : </td>
 							<td><input type="tel" name="phone"></td>
+							<td></td>
 						</tr>
 						<tr>
 							<td>이메일 : </td>
 							<td><input type="email" name="email"></td>
+							<td></td>
 						</tr>
 						<tr>
 							<td>주소 : </td>
 							<td><input type="text" name="addr"></td>
+							<td></td>
 						</tr>
 						<tr>
 							<td>취미 : </td>
@@ -57,9 +64,10 @@
 								<label for="ch05">자스</label><input id="ch05" type="checkbox" name="hobbys" value="js">
 								<label for="ch06">쿼리</label><input id="ch06" type="checkbox" name="hobbys" value="sql">
 							</td>
+							<td></td>
 						</tr>
 						<tr>
-							<td colspan="2"><input type="submit" value="회원가입"></td>
+							<td colspan="3"><input type="submit" value="회원가입"></td>
 						</tr>
 						
 					</tbody>
@@ -73,9 +81,17 @@
 </body>
 </html>
 
+
 <script>
 
 	function checkValidate(){
+		
+		//중복검사 통과 여부
+		if(!window.idOk){
+			alert("아이디 중복검사를 완료하세요.");
+			document.querySelector("input[name=memberId]").focus;
+			return false;
+		}
 
 		//아이디 길이
 		const memberId = document.querySelector("main input[name=memberId]").value;
@@ -119,6 +135,37 @@
 		// 	return false;
 		// }
 		return true;
+	}
+	
+	// 아이디 중복체크
+	function checkIdDup(){
+		
+// 		fetch(url 경로)
+// 		.then(응답객체에서 데이터 읽기)
+// 		.then(읽은 데이터로 작업 ㄱㄱ); 
+
+		const memberIdValue = document.querySelector("main input[name=memberId]").value;
+
+		fetch("/app99/member/check/id?memberId=" + memberIdValue)
+		.then( (resp) => {return resp.json()} )
+		.then((data) => {
+			const result = data.msg;
+			const isOk = result === "ok";
+			if(isOk){
+				alert("사용가능");
+				window.idOk = true;
+			}else{
+				alert("사용불가");
+				window.idOk = false;
+			}
+		});
+		
+// 		const isOk = true;
+// 		if(isOk){
+// 			alert("사용가능");
+// 		}else{
+// 			alert("사용불가");
+// 		}
 	}
 
 </script>
