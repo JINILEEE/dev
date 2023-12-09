@@ -51,8 +51,38 @@
 			<a href="/app99/board/list?pno=<%= currPage %>">목록으로</a>
 		
 		</main>
+		
+		댓글들 :::
+		<div id="replyArea"></div>		
 	
 	</div>
 	
+	<script>
+	
+	
+		//ajax 를 이용하여 댓글 목록 조회	
+		function getReplyList(refNo){
+			fetch("/app99/board/reply/list?no=1")
+			.then( (resp)=>{return resp.json()} )			//불러올때 resp 객체를 불러올 것이므로
+			.then( (data)=>{console.log(data);} ) 
+			.catch( ()=>{alert("댓글 불러오기 실패...");} );
+		}
+		
+		//댓글 목록들을 화면에 보여주기
+		function setReplyArea(){
+			const divTag = document.querySelector("#replyArea");
+			const replyVoList = getReplyList(1);			// 변수를 이용해서 바꿔줄 예정...
+			divTag.innerHTML = replyVoList;
+		}
+	
+	</script>
+	
 </body>
 </html>
+
+
+
+
+
+
+

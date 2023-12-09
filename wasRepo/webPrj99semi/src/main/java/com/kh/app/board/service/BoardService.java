@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.kh.app.board.dao.BoardDao;
+import com.kh.app.board.dao.ReplyVo;
 import com.kh.app.board.vo.BoardVo;
 import com.kh.app.board.vo.CategoryVo;
 import com.kh.app.db.util.JDBCTemplate;
@@ -56,7 +57,7 @@ public class BoardService {
 	}
 
 	//게시글 상세조회 (+ 조회수 증가)
-	public BoardVo selectBoardByNo(String no) throws Exception{
+	public Map<String, Object> selectBoardByNo(String no) throws Exception{
 
 		//conn
 		Connection conn = JDBCTemplate.getConnection();
@@ -78,7 +79,11 @@ public class BoardService {
 		
 		//close
 		JDBCTemplate.close(conn);
-		return vo;
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("vo", vo);
+		
+		return map;
 	
 	}
 
