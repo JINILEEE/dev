@@ -1,0 +1,13 @@
+.createMovieWrap{
+    display: grid;
+    justify-content: center;
+}
+
+.createMovieWrap input{
+    margin: 2px;
+}
+
+.createMovieWrap button {
+    justify-self: center;
+    width: 80px;
+}

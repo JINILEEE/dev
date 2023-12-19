@@ -1,0 +1,9 @@
+.movieListWrap{
+    display: grid;
+    place-items: center;
+}
+
+.movieListWrap table{
+    border-spacing: 15px;
+    text-align: center;
+}
