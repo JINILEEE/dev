@@ -15,3 +15,32 @@ CREATE TABLE BOARD(
     , CONTENT           VARCHAR2(4000)  NOT NULL
     , ENROLL_DATE       TIMESTAMP       DEFAULT SYSDATE
 );
+
+
+
+-- 게시글 작성
+INSERT INTO BOARD
+(
+    NO
+    , TITLE
+    , CONTENT
+)
+VALUES
+(
+    SEQ_BOARD_NO.NEXTVAL
+    , 'TTTTTT'
+    , 'CCCCCC'
+)
+;
+
+
+
+
+
+
+
+
+
+
+
+

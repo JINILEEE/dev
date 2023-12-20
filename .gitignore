@@ -18,3 +18,4 @@ javaWorkspace/javaPrj/.gitignore
 jdbcWorkspace/jdbcPrj/.gitignore
 springRepo/springPrj01/.settings
 springRepo/springPrj03/.settings
+springRepo/springPrj04mybatis/.settings

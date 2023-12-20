@@ -33,7 +33,7 @@ public class BoardController {
 	//게시글 작성처리
 	@PostMapping("board/write")
 	public String write(BoardVo vo) {
-		
+ 		
 		//data
 		
 		//service
