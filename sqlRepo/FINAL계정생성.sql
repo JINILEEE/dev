@@ -18,6 +18,21 @@ CREATE TABLE BOARD(
 
 
 
+-- MEMBER
+DROP SEQUENCE SEQ_MEMBER_NO;
+CREATE SEQUENCE SEQ_MEMBER_NO NOCACHE NOCYCLE;
+DROP TABLE MEMBER CASCADE CONSTRAINTS;
+CREATE TABLE MEMBER(
+    NO              NUMBER          PRIMARY KEY
+    ,ID             VARCHAR2(100)   NOT NULL UNIQUE
+    ,PWD            VARCHAR2(100)   NOT NULL
+    ,NICK           VARCHAR2(100)   NOT NULL
+    ,ENROLL_DATE    TIMESTAMP       DEFAULT SYSDATE
+);
+
+
+
+
 -- 게시글 작성
 INSERT INTO BOARD
 (
@@ -59,9 +74,54 @@ WHERE NO=?
 
 --게시글 수정
 UPDATE BOARD 
-    SET TITLE=?
-    , CONTENT=?
-WHERE NO=?
+    SET TITLE='hohoho'
+    , CONTENT='poppoppop'   
+WHERE NO=4
+;
+
+
+-- 회원가입
+INSERT INTO MEMBER
+(
+    NO
+    , ID  
+    , PWD
+    , NICK
+)
+VALUES
+(
+    SEQ_MEMBER_NO.NEXTVAL
+    , ?
+    , ?
+    , ?
+)
+;
+
+
+-- 회원 목록 조회
+SELECT * FROM MEMBER
+;
+
+
+-- 회원 상세 조회
+SELECT *
+FROM MEMBER
+WHERE NO = ?
+;
+
+
+-- 회원 삭제
+DELETE FROM MEMBER
+WHERE NO =?
+;
+
+
+-- 회원 수정
+UPDATE MEMBER
+    SET 
+        PWD = ?
+        , NICK =?
+WHERE NO =?
 ;
 
 
@@ -69,12 +129,13 @@ WHERE NO=?
 
 
 
+select systimestamp from dual;
 
 
 
+SELECT DBTIMEZONE FROM DUAL;
 
 
-
-
+ALTER SESSION SET TIME_ZONE = 'Asia/Seoul';
 
 
