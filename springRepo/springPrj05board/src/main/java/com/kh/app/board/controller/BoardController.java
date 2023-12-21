@@ -1,5 +1,7 @@
 package com.kh.app.board.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,27 +42,30 @@ public class BoardController {
 	// 게시글 목록조회
 	@GetMapping("list")
 	public void selectList() {
-		
+		List<BoardVo> voList = service.getBoardList();
+		System.out.println("게시글 목록 조회 : " + voList);
 	}
 	
 	// 게시글 상세조회
 	@GetMapping("detail")
-	public void selectOne() {
-		
+	public void selectOne(String no) {
+		BoardVo vo = service.getBoardByNo(no);
+		System.out.println(vo);
 	}
 	
 	// 게시글 삭제하기
 	@GetMapping("delete")
-	public void delete() {
-		
-		
+	public void delete(String no) {
+		int result = service.delete(no);
+		System.out.println("삭제 결과 : " + result);
 	}
 	
 	
 	// 게시글 수정하기
 	@PostMapping("edit")
-	public void edit() {
-		
+	public void edit(BoardVo vo) {
+		int result = service.edit(vo);
+		System.out.println("게시글 수정 결과 : " + result);
 	}
 	
 	

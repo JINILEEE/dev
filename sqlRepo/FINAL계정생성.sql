@@ -36,6 +36,38 @@ VALUES
 rollback;
 
 
+-- 게시글 목록 조회
+SELECT * 
+FROM BOARD
+;
+
+
+--게시글 상세조회
+SELECT * 
+FROM BOARD
+WHERE NO=?
+;
+
+
+
+--게시글 삭제
+DELETE FROM BOARD
+WHERE NO=?
+;
+
+
+
+--게시글 수정
+UPDATE BOARD 
+    SET TITLE=?
+    , CONTENT=?
+WHERE NO=?
+;
+
+
+
+
+
 
 
 
