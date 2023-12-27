@@ -1,8 +1,11 @@
 package com.kh.app.member.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -70,8 +73,14 @@ public class MemberController {
 	
 	//회원 목록 조회
 	@GetMapping("list")
-	public String list() {
-		return "";
+	public String list(Model model) {
+		
+		List<MemberVo> voList = service.list();
+		System.out.println(voList);
+		
+		model.addAttribute("memberVoList", voList);
+		
+		return "member/list";
 	}
 	
 }//class

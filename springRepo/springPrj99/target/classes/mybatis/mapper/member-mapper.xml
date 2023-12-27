@@ -42,4 +42,17 @@
 		WHERE NO = #{no}
   	</update>
   	
+  	<select id="list" resultType="MemberVo">
+  		SELECT
+		    NO
+		    ,ID
+		    ,PWD
+		    ,NICK
+		    ,ENROLL_DATE
+		    ,DEL_YN
+		FROM MEMBER
+		WHERE DEL_YN = 'N'
+		ORDER BY NO DESC
+  	</select>
+  	
 </mapper>

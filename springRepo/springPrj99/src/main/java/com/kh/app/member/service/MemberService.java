@@ -1,5 +1,7 @@
 package com.kh.app.member.service;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +43,11 @@ public class MemberService {
 	//회원탈퇴
 	public int quit(MemberVo vo) {
 		return dao.quit(sst, vo);
+	}
+
+	//회원 목록
+	public List<MemberVo> list() {
+		return dao.list(sst);
 	}
 
 }//class
