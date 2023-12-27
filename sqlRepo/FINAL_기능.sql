@@ -61,7 +61,7 @@ VALUES
 )
 ;
 
-
+select * from member;
 
 -- 로그인
 SELECT 

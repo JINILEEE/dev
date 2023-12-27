@@ -13,4 +13,9 @@ public class MemberDao {
 		return sst.insert("MemberMapper.join", vo);
 	}
 
+	//로그인
+	public MemberVo login(SqlSessionTemplate sst, MemberVo vo) {
+		return sst.selectOne("MemberMapper.login", vo);
+	}
+
 }

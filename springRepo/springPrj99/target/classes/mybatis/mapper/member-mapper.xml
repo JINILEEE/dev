@@ -21,5 +21,18 @@
 		    , #{nick}
 		)
 	 </insert>
+  	
+  	<select id="login" resultType="MemberVo">
+  		SELECT 
+		    NO
+		    , ID
+		    , PWD
+		    , NICK
+		    , ENROLL_DATE
+		    , DEL_YN
+		FROM MEMBER
+		WHERE ID = #{id}
+		AND PWD = #{pwd}
+  	</select>
   
 </mapper>

@@ -1,5 +1,7 @@
 package com.kh.app.member.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,8 +33,17 @@ public class MemberController {
 	
 	//로그인
 	@PostMapping("login")
-	public String login() {
-		return "";
+	public String login(MemberVo vo, HttpSession session) throws Exception {
+		
+		MemberVo loginMember = service.login(vo);
+		
+		if(loginMember == null){
+			throw new Exception("로그인 실패");
+		}
+		
+		session.setAttribute("loginMember", loginMember);
+		session.setAttribute("alertMsg", "로그인 성공!");
+		return "redirect:/home";
 	}
 	
 	//회원 정보 수정

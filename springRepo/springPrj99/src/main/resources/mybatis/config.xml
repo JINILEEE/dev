@@ -10,4 +10,9 @@
   	<setting name="jdbcTypeForNull" value="NULL"/>
   </settings>
   
+  <!-- 별칭 등록 -->
+  <typeAliases>
+  	<typeAlias type="com.kh.app.member.vo.MemberVo" alias="MemberVo"/>
+  </typeAliases>
+  
 </configuration>

@@ -33,4 +33,9 @@ public class MemberService {
 	
 	}
 
+	//로그인
+	public MemberVo login(MemberVo vo) {
+		return dao.login(sst, vo);
+	}
+
 }//class
