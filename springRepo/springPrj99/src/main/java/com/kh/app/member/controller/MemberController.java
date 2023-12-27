@@ -51,8 +51,14 @@ public class MemberController {
 	
 	//회원 정보 수정
 	@PostMapping("edit")
-	public String edit() {
-		return "";
+	public String edit(MemberVo vo) throws Exception {
+		int result = service.edit(vo);
+		
+		if(result != 1) {
+			throw new Exception();
+		}
+		
+		return "redirect:/home";
 	}
 	
 	//회원 탈퇴

@@ -4,7 +4,62 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="BoardMapper">
-  
+	<insert id="insert">
+		INSERT INTO BOARD
+		(
+		    NO
+		    , TITLE
+		    , CONTENT
+		    , WRITER_NO
+		)
+		VALUES
+		(
+		    SEQ_BOARD_NO.NEXTVAL
+		    , #{title}
+		    , #{content}
+		    , #{writerNo}
+		)
+	</insert>
  
+	<select id="list" resultType="BoardVo">
+		SELECT 
+		    NO
+		    ,TITLE
+		    ,CONTENT
+		    ,ENROLL_DATE
+		    ,DEL_YN
+		    ,WRITER_NO
+		FROM BOARD
+		WHERE DEL_YN = 'N'
+		ORDER BY NO DESC
+	</select>
+	
+	<select id="detail" resultType="BoardVo">
+		SELECT 
+		    NO
+		    ,TITLE
+		    ,CONTENT
+		    ,ENROLL_DATE
+		    ,DEL_YN
+		    ,WRITER_NO
+		FROM BOARD
+		WHERE NO = #{no}
+		AND DEL_YN = 'N'
+	</select>
   
+ 	<update id="delete">
+ 		UPDATE BOARD 
+		    SET 
+		        DEL_YN = 'Y'
+		WHERE NO = #{no}
+ 	</update>
+ 	
+ 	<update id="edit">
+ 		UPDATE BOARD
+ 			SET
+ 				TITLE = #{title}
+ 				, CONTENT = #{content}
+ 			WHERE NO = #{no}
+ 			AND DEL_YN = 'N'
+ 	</update>
 </mapper>

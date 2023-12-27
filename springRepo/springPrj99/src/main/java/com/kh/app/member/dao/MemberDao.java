@@ -30,4 +30,9 @@ public class MemberDao {
 		return sst.selectList("MemberMapper.list");
 	}
 
+	//정보수정
+	public int edit(SqlSessionTemplate sst, MemberVo vo) {
+		return sst.update("MemberMapper.edit", vo);
+	}
+
 }

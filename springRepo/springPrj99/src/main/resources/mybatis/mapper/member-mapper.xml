@@ -55,4 +55,19 @@
 		ORDER BY NO DESC
   	</select>
   	
+  	<update id="edit">
+  		UPDATE MEMBER
+  			SET
+  			<trim prefixOverrides=",">
+				<if test="pwd != null and pwd != '' ">
+					PWD = #{pwd}
+				</if>
+				<if test="nick != null and nick != ''">
+					, NICK = #{nick}
+				</if>
+  			</trim>
+		WHERE NO = #{no}
+		AND DEL_YN = 'N'
+  	</update>
+  	
 </mapper>

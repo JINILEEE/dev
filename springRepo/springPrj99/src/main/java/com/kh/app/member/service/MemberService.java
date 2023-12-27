@@ -50,4 +50,9 @@ public class MemberService {
 		return dao.list(sst);
 	}
 
+	//정보 수정
+	public int edit(MemberVo vo) {
+		return dao.edit(sst, vo);
+	}
+
 }//class

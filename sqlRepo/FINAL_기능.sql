@@ -85,15 +85,16 @@ WHERE NO = ?
 ;
 
 -- 전체 회원 목록 조회 (관리자 전용)
-SELECT 
+SELECT
     NO
-    , ID
-    , PWD
-    , NICK
-    , ENROLL_DATE
-    , DEL_YN
+    ,ID
+    ,PWD
+    ,NICK
+    ,ENROLL_DATE
+    ,DEL_YN
 FROM MEMBER
 WHERE DEL_YN = 'N'
+ORDER BY NO DESC
 ;
 
 
