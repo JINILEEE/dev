@@ -206,6 +206,12 @@
 		    <version>2.8.6</version>
 		</dependency>
 			
+		<!-- transaction -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 		     
 	</dependencies>
     <build>

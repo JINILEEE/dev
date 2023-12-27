@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.app.member.dao.MemberDao;
 import com.kh.app.member.vo.MemberVo;
@@ -12,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class MemberService {
 	
 	private final SqlSessionTemplate sst;
@@ -19,7 +21,9 @@ public class MemberService {
 	
 	// 회원가입
 	public int join(MemberVo vo) {
-		return dao.join(sst, vo);
+		int result = dao.join(sst, vo);
+		int x = 1 / 0;
+		return result;
 	}
 
 	// 회원 목록 조회	

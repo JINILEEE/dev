@@ -69,4 +69,9 @@
 		<property name="maxUploadSizePerFile" value="5000000"/>		
 	</bean>
 	 	
+	<!-- tx -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dbcpSource"></property>
+	</bean> 	
+	 	
 </beans>

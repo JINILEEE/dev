@@ -9,7 +9,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 
-
 @Data						// @Getter + @Setter + @ToString + @RequiredArgsConstructor + @EqualsAndHashCode
 //@NoArgsConstructor   		//기본 생성자 만드는 어노테이션
 //@AllArgsConstructor  		//모든 파라미터를 받는 생성자를 만드는 어노테이션
