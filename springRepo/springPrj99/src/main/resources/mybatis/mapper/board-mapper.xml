@@ -57,8 +57,14 @@
  	<update id="edit">
  		UPDATE BOARD
  			SET
- 				TITLE = #{title}
- 				, CONTENT = #{content}
+ 			<trim prefixOverrides=",">
+	 			<if test="title != null and title != ''">
+	 				TITLE = #{title}
+	 			</if>
+	 			<if test="content != null and content != ''">
+	 				, CONTENT = #{content}
+	 			</if>
+ 			</trim>
  			WHERE NO = #{no}
  			AND DEL_YN = 'N'
  	</update>

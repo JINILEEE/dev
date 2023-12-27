@@ -117,25 +117,25 @@ VALUES
 ;
 
 -- 게시글 목록 조회
-SELECT
+SELECT 
     NO
-    , TITLE
-    , CONTENT
-    , ENROLL_DATE
-    , DEL_YN
-    , WRITER_NO
+    ,TITLE
+    ,CONTENT
+    ,ENROLL_DATE
+    ,DEL_YN
+    ,WRITER_NO
 FROM BOARD
-AND DEL_YN = 'N'
+WHERE DEL_YN = 'N'
+ORDER BY NO DESC
 ;
-
 -- 게시글 상세 조회 (글 번호)
-SELECT
+SELECT 
     NO
-    , TITLE
-    , CONTENT
-    , ENROLL_DATE
-    , DEL_YN
-    , WRITER_NO
+    ,TITLE
+    ,CONTENT
+    ,ENROLL_DATE
+    ,DEL_YN
+    ,WRITER_NO
 FROM BOARD
 WHERE NO = ?
 AND DEL_YN = 'N'
