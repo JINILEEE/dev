@@ -17,5 +17,10 @@ public class MemberDao {
 	public MemberVo login(SqlSessionTemplate sst, MemberVo vo) {
 		return sst.selectOne("MemberMapper.login", vo);
 	}
+	
+	//회원탈퇴
+	public int quit(SqlSessionTemplate sst, MemberVo vo) {
+		return sst.update("MemberMapper.quit", vo);
+	}
 
 }

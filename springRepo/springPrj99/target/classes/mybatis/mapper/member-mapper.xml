@@ -35,4 +35,11 @@
 		AND PWD = #{pwd}
   	</select>
   
+  	<update id="quit">
+  		UPDATE MEMBER
+		    SET
+		        DEL_YN = 'Y'
+		WHERE NO = #{no}
+  	</update>
+  	
 </mapper>

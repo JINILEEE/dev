@@ -38,4 +38,9 @@ public class MemberService {
 		return dao.login(sst, vo);
 	}
 
+	//회원탈퇴
+	public int quit(MemberVo vo) {
+		return dao.quit(sst, vo);
+	}
+
 }//class

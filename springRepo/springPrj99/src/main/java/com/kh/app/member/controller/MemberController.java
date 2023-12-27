@@ -54,8 +54,17 @@ public class MemberController {
 	
 	//회원 탈퇴
 	@GetMapping("quit")
-	public String quit() {
-		return "";
+	public String quit(MemberVo vo, HttpSession session) throws Exception {
+		
+		int result = service.quit(vo);
+		
+		if(result != 1) {
+			throw new Exception();
+		}
+		session.removeAttribute("loginMember");
+		session.setAttribute("alertMsg", "회원 탈퇴 완료!");
+		
+		return "redirect:/home";
 	}
 	
 	
