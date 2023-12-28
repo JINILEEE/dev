@@ -84,7 +84,7 @@
 </div>
 
 <div class="navi">
-	<div>게시판</div>
+	<div><a href="/app/board/list">게시판</a></div>
 	<div>공지사항</div>
 	<div>갤러리</div>
 	<div>마이페이지</div>
