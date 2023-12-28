@@ -21,24 +21,31 @@
 	
 	<script>
    
-	  const voList = [
-		  {
-			  no : '1',
-			  title : '제목111',
-			  content : '내용111'
-		  }, 
-		  {
-			  no : '2',
-			  title : '제목222',
-			  content : '내용222'
-		  }, 
-		  {
-			  no : '3',
-			  title : '제목333',
-			  content : '내용333'
-		  }
-		  ];
+// 	  const voList = [
+// 		  {
+// 			  no : '1',
+// 			  title : '제목111',
+// 			  content : '내용111'
+// 		  }, 
+// 		  {
+// 			  no : '2',
+// 			  title : '제목222',
+// 			  content : '내용222'
+// 		  }, 
+// 		  {
+// 			  no : '3',
+// 			  title : '제목333',
+// 			  content : '내용333'
+// 		  }
+// 		  ];
 	  	  
+	  fetch('/app/board/rest/list')
+	  .then(resp => resp.json())
+	  .then(data => {console.log(data);})
+	  ;
+	  
+	  const voList = [];
+	  
       const mainDiv = document.querySelector(".main");
       const str    = ''
                 + '<table>'
