@@ -1,4 +1,5 @@
 import React from 'react';
+import LoginArea from './LoginArea';
 
 const KhHeader = () => {
 
@@ -15,7 +16,7 @@ const KhHeader = () => {
         <div style={x}>
             <div>빈칸</div>
             <div>로고</div>
-            <div>로그인영역</div>
+            <LoginArea />
         </div>
     );
 }

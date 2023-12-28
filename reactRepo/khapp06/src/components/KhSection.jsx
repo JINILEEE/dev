@@ -1,22 +1,27 @@
 import React from "react";
+import styled from 'styled-components';
+
+const StyledSectionDiv = styled.div`
+    width: 100%;
+    height: 100%;
+    background-color: #fdffa1;
+
+    & > table {
+        width: 80%;
+        height: 80%;
+        border: 3px solid black;
+
+        & tr{
+            background-color: orange;
+        }
+    }
+`;
 
 const KhSection = () => {
     
-    const x = {
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'yellow',
-    };
-    
-    const y = {
-        width: '80%',
-        height: '80%',
-        border: '5px solid black'
-    };
-
     return (
-        <div style={x}>
-            <table style={y}>
+        <StyledSectionDiv>
+            <table>
                 <thead>
                     <tr className='abc'>
                         <th>번호</th>
@@ -32,7 +37,7 @@ const KhSection = () => {
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </StyledSectionDiv>
     );
 };
 
