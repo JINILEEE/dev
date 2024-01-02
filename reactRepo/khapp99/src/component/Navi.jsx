@@ -12,7 +12,7 @@ const StyledNaviDiv = styled.div`
     background-color: black;
     color: white;
     font-size: 2rem;
-    border-top: 5px solid wheat;
+    border-top: 5px solid white;
 `;
 
 const Navi = () => {
