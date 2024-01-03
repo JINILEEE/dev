@@ -9,7 +9,7 @@ const StyledNaviDiv = styled.div`
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
     place-items: center center;
-    background-color: black;
+    background-color: #F4CE14;
     color: white;
     font-size: 2rem;
     border-top: 5px solid white;
