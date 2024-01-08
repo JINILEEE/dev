@@ -39,9 +39,6 @@ public class BoardApiController {
 	@PostMapping("write")
 	public Map<String, String> write(@RequestBody BoardVo vo, HttpSession session) {
 		
-		//writerNo정보는 세션에서 가져온 데이터로 채움
-		vo.setWriterNo("1");
-		
 		int result = service.insert(vo);
 		
 		Map<String, String> map = new HashMap<String, String>();

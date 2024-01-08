@@ -8,6 +8,7 @@ const StyledHeaderDiv = styled.div`
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 1fr;
+    color: white;
     & > .logoArea{
         background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0xV0wvfjulAeFoVTW_NC9N66mdvxwNLbaF6O0LGHjnJP-2ytAlFU4dHFNbttQD8bSXfU&usqp=CAU);
         background-repeat: no-repeat;
@@ -41,7 +42,10 @@ const StyledLoginAreaDiv = styled.div`
 const Header = () => {
     
     const navigate = useNavigate();
-    let [loginMemberVo, setLoginMemberVo] = useState(null);
+
+    const jsonStr = sessionStorage.getItem("loginMemberVo");
+    const sessionLoginMemberVo = JSON.parse(jsonStr);
+    const [loginMemberVo, setLoginMemberVo] = useState(sessionLoginMemberVo);
 
     const handleClickJoin = () => {
         navigate('/member/join');
@@ -74,8 +78,8 @@ const Header = () => {
         .then( (data) => { 
             if(data.msg === "good"){
                 alert("로그인 성공!");
-                setLoginMemberVo(data.loginMember);
-                console.log("loginMemberVo", loginMemberVo);
+                sessionStorage.setItem("loginMemberVo", JSON.stringify(data.loginMemberVo));
+                setLoginMemberVo(data.loginMemberVo);
             }else{
                 alert("로그인 실패...");
             }
@@ -88,7 +92,7 @@ const Header = () => {
 
     return (
         <StyledHeaderDiv>
-            <div>빈칸</div>
+            <div></div>
             <div className='logoArea' onClick={ () => { navigate("/") } }></div>
             {
                 loginMemberVo === null 
@@ -105,6 +109,10 @@ const Header = () => {
                 :
                 <div>
                     <h3>{ loginMemberVo.nick }님 환영합니다.</h3>
+                    <button onClick={ () => {
+                        sessionStorage.removeItem("loginMemberVo");
+                        setLoginMemberVo(null);
+                    }}>로그아웃</button>
                 </div>
             }
         </StyledHeaderDiv>

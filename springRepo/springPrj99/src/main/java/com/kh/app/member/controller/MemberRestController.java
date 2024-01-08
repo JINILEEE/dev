@@ -43,16 +43,12 @@ public class MemberRestController {
 	}//join
 	
 	@PostMapping("login")
-	public Map<String, Object> login(@RequestBody MemberVo vo, HttpSession session) {
+	public Map<String, Object> login(@RequestBody MemberVo vo) {
 		
-		System.out.println("login > vi : " + vo);
 		MemberVo loginMember = service.login(vo);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("msg", "good");
-		map.put("loginMember", loginMember);
-		
-		//로그인한 정보를 세션에 담아주는 작업
-		session.setAttribute("loginMemberVo", loginMember);
+		map.put("loginMemberVo", loginMember);
 		
 		if(loginMember == null) {
 			map.put("msg", "bad");

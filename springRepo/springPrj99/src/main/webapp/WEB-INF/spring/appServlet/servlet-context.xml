@@ -28,4 +28,11 @@
 	<!-- 	@Transactional 어노테이션 활성화 -->
 	<tx:annotation-driven/>
 	
+	<cors>
+		<mapping 
+			path="/**" 
+			allowed-origins="*"
+		/>
+	</cors>
+	
 </beans:beans>

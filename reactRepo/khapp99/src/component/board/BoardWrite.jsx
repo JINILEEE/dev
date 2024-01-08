@@ -17,7 +17,13 @@ const StyledBoardWriteDiv = styled.div`
 
 const BoardWrite = () => {
 
-    const [inputBoardVo, setInputBoardVo] = useState({});
+    const str = sessionStorage.getItem("loginMemberVo");
+    const vo = JSON.parse(str);
+    const writerNo = vo.no;
+
+    const [inputBoardVo , setInputBoardVo] = useState({
+        "writerNo": writerNo,
+    });
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
