@@ -2,6 +2,7 @@ package com.kh.app.board.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -16,8 +17,11 @@ public class BoardDao {
 	}
 
 	//게시글 목록
-	public List<BoardVo> list(SqlSessionTemplate sst) {
-		return sst.selectList("BoardMapper.list");
+	public List<BoardVo> list(SqlSessionTemplate sst, PageVo pvo) {
+		int offset = (pvo.getCurrentPage()-1) * pvo.getBoardlimit();   // 몇 개 건너뛸지... 
+		int limit = pvo.getBoardLimit();   // 최대 몇개 보일지...
+		RowBounds rb = new RowBounds(offset, limit);       // 0개를 건너뛰고, 그 다음부터 10개를 조회할 예정...
+		return sst.selectList("BoardMapper.list", rb);
 	}
 
 	//게시글 상세 조회
