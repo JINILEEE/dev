@@ -1,0 +1,30 @@
+INFO[2024-01-25 15:35:24,410] org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+INFO[2024-01-25 15:35:25,705] org.springframework.web.context.ContextLoader - Root WebApplicationContext initialized in 1294 ms
+INFO[2024-01-25 15:35:25,770] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'appServlet'
+INFO[2024-01-25 15:35:27,794] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2024 ms
+WARN[2024-01-25 15:38:02,989] com.kh.app.board.controller.BoardApiController - BoardApiController클래스의 list메소드 호출됨!!!
+INFO[2024-01-25 15:39:46,609] org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+INFO[2024-01-25 15:39:47,908] org.springframework.web.context.ContextLoader - Root WebApplicationContext initialized in 1299 ms
+INFO[2024-01-25 15:39:47,973] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'appServlet'
+INFO[2024-01-25 15:39:49,963] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1989 ms
+INFO[2024-40-25] org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+INFO[2024-40-25] org.springframework.web.context.ContextLoader - Root WebApplicationContext initialized in 1276 ms
+INFO[2024-40-25] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'appServlet'
+INFO[2024-40-25] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2035 ms
+WARN[2024-40-25] com.kh.app.board.controller.BoardApiController - BoardApiController클래스의 list메소드 호출됨!!!
+WARN[2024-01-25 04:35:56] com.kh.app.board.controller.BoardApiController - BoardApiController클래스의 list메소드 호출됨!!!
+INFO[2024-01-25 04:36:45] com.kh.app.board.controller.BoardApiController - BoardApiController클래스의 list메소드 호출됨!!!
+INFO[2024-01-25 04:37:07] org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+INFO[2024-01-25 04:37:08] org.springframework.web.context.ContextLoader - Root WebApplicationContext initialized in 1286 ms
+INFO[2024-01-25 04:37:08] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'appServlet'
+INFO[2024-01-25 04:37:10] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1921 ms
+INFO[2024-01-25 04:37:24] com.kh.app.board.controller.BoardApiController - BoardApiController클래스의 list메소드 호출됨!!!
+INFO[2024-01-25 04:51:03] org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+INFO[2024-01-25 04:51:05] org.springframework.web.context.ContextLoader - Root WebApplicationContext initialized in 1316 ms
+INFO[2024-01-25 04:51:05] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'appServlet'
+INFO[2024-01-25 04:51:07] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2223 ms
+INFO[2024-01-25 04:51:09] com.kh.app.board.controller.BoardApiController - 전달받은 vo값 : aaa, 어떤 다른 값 : bbb, 또 다른 값 : ccc
+INFO[2024-01-25 05:08:53] org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+INFO[2024-01-25 05:08:54] org.springframework.web.context.ContextLoader - Root WebApplicationContext initialized in 1333 ms
+INFO[2024-01-25 05:08:54] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'appServlet'
+INFO[2024-01-25 05:08:56] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2037 ms

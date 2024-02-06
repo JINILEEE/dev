@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <form id="joinForm">
+        <label for="userId">아이디:</label>
+        <input type="text" id="userId" name="userId"><br>
+    
+        <label for="password">패스워드:</label>
+        <input type="password" id="password" name="password"><br>
+    
+        <label for="nickname">닉네임:</label>
+        <input type="text" id="nickname" name="nickname"><br>
+    
+        <button type="button" onclick="submitJoin()">회원가입</button>
+    </form>
+    
+    <script>
+    function submitJoin() {
+        var userData = {
+            userId: $('#userId').val(),
+            password: $('#password').val(),
+            nickname: $('#nickname').val()
+        };
+    
+        $.ajax({
+            url: 'http://127.0.0.1:8888/app/member',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(userData),
+            success: function(response) {
+                alert("회원가입 성공!!!!!!!");
+            },
+            error: function() {
+                alert("회원가입 실패ㅠㅠ");
+            }
+        });
+    }
+    </script>
+    
+</body>
+</html>
